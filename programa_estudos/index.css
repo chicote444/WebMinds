@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: #353D41;
+}
+
+.header {
+    padding: 0 0dvw 0 0;
+}
+
+.navbar-toggler-icon {
+    font-size: 2rem;
+    padding: 0 0 0 0rem;
+    margin: 0 0 0 0dvw;
+    color: white;
+}
+
+.span {
+    padding: 100dvw;
+    margin: 0 0 0 0;
+}
+
+form {
+    margin: 0 0 0 0dvw;
+}
+
+.navbar-brand {
+    padding: 0 30dvw 0 0
+}
+
+.bott {
+    padding: 0 0 0 0dvw;
+}
+
+section {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 2dvh 25dvw 0 25dvw;
+    border-radius: 1rem;
+    background-color: #f3f3f3;
+}
+
+.sep {
+    display: flex;
+    justify-content: space-between;
+    padding: 4dvw 10dvw 5dvw 10dvw;
+}
+
