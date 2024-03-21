@@ -1,0 +1,86 @@
+{  
+   "semana1": [
+        
+                {
+                    "dia": 1,
+                    "materia": "Matemática",
+                    "assuntos": ["Geometria", "Mediana"]
+
+                },
+                {
+                    "dia": 2,
+                    "materia": "Geografia",
+                    "assuntos": ["Geometria", "Mediana"]
+
+                },
+                {
+                    "dia": 3,
+                    "materia": "Português",
+                    "assuntos": ["Geometria", "Mediana"]
+
+                },
+                {
+                    "dia": 4,
+                    "materia": "Inglês",
+                    "assuntos": ["Geometria", "Mediana"]
+
+                }
+        
+    ], 
+    "semana2": [
+        
+        {
+            "dia": 1,
+            "materia": "Matemática",
+            "assuntos": ["Geometria", "Mediana"]
+
+        },
+        {
+            "dia": 2,
+            "materia": "Geografia",
+            "assuntos": ["Geometria", "Mediana"]
+
+        },
+        {
+            "dia": 3,
+            "materia": "Português",
+            "assuntos": ["Geometria", "Mediana"]
+
+        },
+        {
+            "dia": 4,
+            "materia": "Inglês",
+            "assuntos": ["Geometria", "Mediana"]
+
+        }
+
+    ],
+    "semana3": [
+        
+        {
+            "dia": 1,
+            "materia": "Matemática",
+            "assuntos": ["Geometria", "Mediana"]
+
+        },
+        {
+            "dia": 2,
+            "materia": "Geografia",
+            "assuntos": ["Geometria", "Mediana"]
+
+        },
+        {
+            "dia": 3,
+            "materia": "Português",
+            "assuntos": ["Geometria", "Mediana"]
+
+        },
+        {
+            "dia": 4,
+            "materia": "Inglês",
+            "assuntos": ["Geometria", "Mediana"]
+
+        }
+
+    ]
+}
