@@ -66,6 +66,7 @@ section {
 table {
     justify-content: center;
     text-align: center;
+    align-items: center;
     margin: 0 200dvw 0 0dvw;
     width: 100%;
     font-size: 1dvw;
@@ -86,12 +87,14 @@ td, th{
     padding: 0 0 2dvw 0;
     border: 2px solid black;
     color: #2823bc;
+    
 }
 
 
 
 tr {
     margin: 0;
+    align-content: center;
 }
 
 @media (1100px <= width <= 1600px) {
@@ -101,7 +104,6 @@ tr {
 
     .progs {
         padding: 0 0 6dvh 0;
-        
     }
 }
 
@@ -113,4 +115,9 @@ tr {
 
 }
 
+@media (width >= 1700px) {
+    section {
+        margin: 5dvh 25dvw 0 25dvw;
+    }
+}
 
