@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #696969, #6495ED);
+            height: 1000vh; /* Ocupa a altura total da viewport */
+            margin: 0; /* Remove margem padrão do body */
+            padding: 0; /* Remove padding padrão do body */
+        }
+
+        /* Estilo para o botão circular */
+        .botao-circular {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007bff; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto */
+            font-size: 24px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo para a cruz dentro do botão */
+        .botao-circular::after,
+        .botao-circular::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 2px;
+            background-color: #fff; /* Cor da cruz */
+        }
+
+        .botao-circular::after {
+            transform: rotate(90deg);
+        }
+
+        .botao-circular::before {
+            transform: rotate(-180deg);
+        }
+
+        /* Centraliza apenas as divs de cartões */
+        #cardContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="p-3 m-0 border-0 bd-example">
+    <div class="container">
+        <h1 class="text-center" style="color:#F8F8FF;">Minha Rotina</h1><br><br>
+
+        <div class="row justify-content-center" id="cardContainer">
+            <!-- Existing Cards will be appended here -->
+        </div>
+
+        <!-- Botão circular com a classe "botao-circular" e evento de clique -->
+        <button class="botao-circular" onclick="criarDiv()"></button>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function criarDiv() {
+            // Criação dos elementos da div
+            var divCard = document.createElement('div');
+            divCard.classList.add('card', 'border-primary', 'mb-3');
+            divCard.style.maxWidth = '18rem';
+
+            var divCardHeader = document.createElement('div');
+            divCardHeader.classList.add('card-header');
+
+            var inputHeader = document.createElement('input');
+            inputHeader.classList.add('form-control');
+            inputHeader.value = 'tema';
+            inputHeader.type = 'text';
+
+            var divCardBody = document.createElement('div');
+            divCardBody.classList.add('card-body', 'text-primary');
+
+            var cardTitle = document.createElement('input');
+            cardTitle.classList.add('form-control');
+            cardTitle.value = 'Título';
+            cardTitle.type = 'text';
+
+            var cardText = document.createElement('textarea');
+            cardText.classList.add('form-control');
+            cardText.value = 'Texto.';
+            cardText.rows = '3';
+
+            var btnConcluir = document.createElement('a');
+            btnConcluir.classList.add('btn', 'btn-primary');
+            btnConcluir.innerText = 'Concluir';
+            btnConcluir.href = '#';
+            btnConcluir.onclick = function() {
+                deletarDiv(divCard);
+            };
+
+            // Anexa os elementos criados à div principal
+            divCardHeader.appendChild(inputHeader);
+            divCardBody.appendChild(cardTitle);
+            divCardBody.appendChild(cardText);
+            divCardBody.appendChild(btnConcluir);
+
+            divCard.appendChild(divCardHeader);
+            divCard.appendChild(divCardBody);
+
+            // Adiciona a div criada ao documento
+            document.getElementById('cardContainer').appendChild(divCard);
+        }
+
+        function deletarDiv(div) {
+            div.remove();
+        }
+    </script>
+</body>
+</html>
