@@ -1,0 +1,66 @@
+
+.caixa {
+    background: #778899;
+    margin-top: 1px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 0.9125rem #444849;
+    max-width: 1200px;
+}
+
+body {
+    background:#00008B;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.botao-circular {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-circular::after,
+.botao-circular::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.botao-circular::after {
+    transform: rotate(90deg);
+}
+
+.botao-circular::before {
+    transform: rotate(-180deg);
+}
+
+.card {
+    margin-bottom: 20px; /* Adicione uma margem inferior para separar os cartões */
+}
+
+.card-header,
+.card-body,
+.form-control,
+.btn-primary {
+    font-size: 14px; /* Ajuste do tamanho da fonte para tornar o cartão mais fino */
+}
+
