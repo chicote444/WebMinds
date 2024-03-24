@@ -4,7 +4,7 @@ var chico = (a, b) => {
 
 
 
-function min() {
+var min = () => {
     let w = document.querySelector('.progs2');
     let x = document.querySelector('.progs3');
     let y = document.querySelector('.turma3');
