@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>estudantes</title>
+  <style>
+    /* Estilos CSS para o site */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    header {
+      background-color: rgba(25,25,112);
+      color: rgb(255, 255, 255);
+      padding: 20px;
+      text-align: center;
+    }
+
+
+    nav {
+      background-color: rgb(128,128,128);
+      color: rgb(255, 255, 255);
+      padding: 10px;
+      text-align: center;
+    }
+
+
+    nav a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+
+    section {
+      padding: 20px;
+    }
+
+
+    footer {
+      background-color: rgb(128,128,128);
+      color: rgb(0, 0, 0);
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <head>
+
+    <nav>
+      <a href="cadastro">Cadastro</a>
+      <a href="minharotina">Rotina</a>
+      <a href="Programa de Estudos">Programa de Estudos</a>
+      <a href="Canto do Estudante">Canto do Estudante</a>
+    </nav> 
+    <title>Cadastro de Estudante</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+  <header>
+
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Estudante</title>
+        <link rel="stylesheet" href="styles.css">
+      </head>
+      <body>
+        <div class="container">
+          <h2>Cadastro de Estudante</h2>
+          <form action="#">
+            <div class="form-group">
+            
+              <label for="foto">Foto:</label>
+              <input type="file" id="foto" name="foto" accept="image/*">
+            </div>
+            <div class="form-group">
+              <label for="matricula">Matrícula:</label>
+              <input type="text" id="matricula" name="matricula" required>
+            </div>
+            <div class="form-group">
+              <label for="nome">Nome:</label>
+              <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="data-nascimento">Data de Nascimento:</label>
+              <input type="date" id="data-nascimento" name="data-nascimento" required>
+            </div>
+            <div class="form-group">
+              <label for="curso">Curso:</label>
+              <input type="text" id="curso" name="curso" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+          </form>
+        </div>
+      </body>
+  </header>
+
+     <style>
+        html, body {
+          height: 100%;
+          margin: 0;
+          overflow: hidden;
+        }
+
+        body {
+          font-family: Helvética;
+          background-color: #191970;
+        }
+
+        h2 {
+          color: #000000;
+        }
+
+        form {
+          max-width: 300px;
+          margin: 0 auto;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+          display: block;
+          margin-bottom: 1px;
+          color:#000000;
+        }
+
+        input {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          /* Adicionando bordas arredondadas às caixas de input */
+        }
+
+        input[type="submit"] {
+          background-color: #1919700F0;
+          color: white;
+          cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+          background-color: #000000;
+        }
+
+        .div-maior {
+            display: flex;
+            height: 100%;
+        }
+
+        .div-menor {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0px Mightblue rgba(37, 15, 116, 0.6);
+        }
+
+        .div-menor-esquerda {
+            order: -1;
+        }
+
+        .div-menor-direita {
+            order: 1;
+            background-image:url('../images/mulher2.jpg');
+            background-size: 110% 110%;
+            background-position: center;
+        }
+
+      </style>
+    </head>
+
+    <body>
+      <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+
+          <img src="../images/Skin.jpg" style="height: 4%; width: 4%;">
+          <a href="#" class="navbar-brand" style="margin-left: 20px;"><span class="text-purple"></span></a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html#section_1">
+                  <small class="small-title"><strong class="text-purple"></strong></small> 
+                </a>
+              </li>
+
+              <!--Novo  click-scroll -->
+              <li class="nav-item">
+                <a class="nav-link" href="av1_cadastro.html">
+                  <small class="small-title"><strong class="text-purple"></strong></small> 
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="av1_faq.html">
+                  <small class="small-title"><strong class="text-purple"></strong></small> 
+                </a>
+              </li>
+
+              </li>
+            </ul>
+            </div>
+            </div>
+      </nav>
+
+      <div class="div-maior">
+
+        <div class="div-menor div-menor-esquerda">
+          <div style="color: midnightblue; margin-top:-60px">
+          <h1>Entre na sua conta e você poderá:</h1><br>
+
+          </div>
+        </div>
+
+        <div class="div-menor div-menor-direita" style="margin-top:-60px">
+        <form method="post" onsubmit="return loginRedirecionar()">
+          <h2 style="text-align:center">FAÇA LOGIN</h2> <br>
+
+          <label for="email"></label>
+          <input type="email" id="email" placeholder="Email" onfocus="limparTexto(this)" onblur="restaurarTexto(this)" required>
+          <br>
+
+          <label for="password"></label>
+          <input type="password" id="password" placeholder="Senha" onfocus="limparTexto(this)" onblur="restaurarTexto(this)" required>
+          <br> <br>
+
+          <input type="submit" value="Entrar">
+          <h6 style="text-align:center; font-size: 12px;">novo <a href="../html/av1_cadastro.html">Cadastre-se</a>.</h6>
+        </form>
+        </div>
+      </div>
+
+      <script>
+        function limparTexto(elemento) {
+            if (elemento.value === elemento.defaultValue) {
+                elemento.value = '';
+            }
+        }
+
+        function restaurarTexto(elemento) {
+            if (elemento.value === '') {
+                elemento.value = elemento.defaultValue;
+            }
+        }
+
+        function loginRedirecionar() {
+          window.location.href = "../index.html";
+          return false;
+        }
+      </script>
+
+    </body>
+
+
+
+
