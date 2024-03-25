@@ -53,14 +53,15 @@ body {
     transform: rotate(-180deg);
 }
 
-.card {
-    margin-bottom: 20px; /* Adicione uma margem inferior para separar os cartões */
+
+.div{
+    margin-bottom: 20px; /* Adiciona uma margem inferior para separar os cartões */
 }
 
-.card-header,
-.card-body,
-.form-control,
-.btn-primary {
-    font-size: 14px; /* Ajuste do tamanho da fonte para tornar o cartão mais fino */
+.div{
+    margin: 0 -10px; /* Adiciona uma margem negativa nos lados para compensar as margens dos cartões */
 }
 
+.div{
+    padding: 0 10px; /* Adiciona um preenchimento nos lados para compensar as margens negativas */
+}
