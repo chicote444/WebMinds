@@ -106,3 +106,8 @@ fetch('index.json')
         }
     }
 })
+
+.catch((error) => {
+    console.error('Error:', error);
+});
+
