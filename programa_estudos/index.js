@@ -26,7 +26,7 @@ fetch('index.json')
 
     newjson = JSON.stringify(json);
     newjson = JSON.parse(newjson);
-    console.log(newjson.semana1[0].assuntos[0]);
+    console.log(newjson.semanas[0].semana[0].assuntos[0]);
     let th = document.querySelectorAll('.th');
     console.log(th[0].innerHTML);
     let x = -1;
@@ -35,39 +35,39 @@ fetch('index.json')
     for (c = 0; c < 3; c++) {
 
         
-            for (j = 0; j < newjson.semana1.length; j++) {
+            for (j = 0; j < newjson.semanas[0].length; j++) {
                 
                 switch (c) {
 
                     case 1:
-                        th[x += 2].innerHTML = newjson.semana2[j].materia;
+                        th[x += 2].innerHTML = newjson.semanas[1].semana[j].materia;
                         break;
 
                     case 2:
-                        th[x += 2].innerHTML = newjson.semana3[j].materia;
+                        th[x += 2].innerHTML = newjson.semanas[2].semana[j].materia;
                         break;
 
                     case 0:
-                        th[x += 2].innerHTML = newjson.semana1[j].materia;
+                        th[x += 2].innerHTML = newjson[0].semana[j].materia;
                 }
                 console.log(newjson.semana1[c].assuntos.length);
             }
-            for (i = 0; i < newjson.semana1.length; i++) {
+            for (i = 0; i < newjson.semanas[0].semana.length; i++) {
                 
                 switch (c) {
 
                     case 1:
-                        th[a += 2].innerHTML = newjson.semana2[i].dia;
+                        th[a += 2].innerHTML = newjson.semanas[1].semana[i].dia;
                         break;
 
                     case 2:
-                        th[a += 2].innerHTML = newjson.semana3[i].dia;
+                        th[a += 2].innerHTML = newjson.semanas[2].semana[i].dia;
                         break;
 
                     case 0:
-                        th[a += 2].innerHTML = newjson.semana1[i].dia;
+                        th[a += 2].innerHTML = newjson.semanas[0].semana[i].dia;
                 }
-                console.log(newjson.semana1[c].assuntos.length);
+                console.log(newjson.semanas[0].semana[c].assuntos.length);
             }          
         
     }
@@ -80,31 +80,37 @@ fetch('index.json')
     let y = document.querySelectorAll('td');
     x = -1
     console.log(y.length/3);
-    console.log(newjson.semana1[0].assuntos.length);
+    console.log(newjson.semanas[0].semana[0].assuntos.length);
     console.log(newjson.length);
     for (c = 0; c < 3; c++) {
 
-        for (i = 0; i < newjson.semana1.length; i++) {
-            for (j = 0; j < newjson.semana1[i].assuntos.length; j++) {
+        for (i = 0; i < newjson.semanas[0].semana.length; i++) {
+            for (j = 0; j < newjson.semanas[0].semana[i].assuntos.length; j++) {
                 
                 switch (c) {
 
                     case 1:
-                        y[x += 1].innerHTML = newjson.semana2[i].assuntos[j];
+                        y[x += 1].innerHTML = newjson.semanas[1].semana[i].assuntos[j];
                         break;
 
                     case 2:
-                        y[x += 1].innerHTML = newjson.semana3[i].assuntos[j];
+                        y[x += 1].innerHTML = newjson.semanas[2].semana[i].assuntos[j];
                         break;
 
                     case 0:
-                        y[x += 1].innerHTML = newjson.semana1[i].assuntos[j];
+                        y[x += 1].innerHTML = newjson.semanas[0].semana[i].assuntos[j];
                 }
-                console.log(newjson.semana1[c].assuntos.length);
+                console.log(newjson.semanas[0].semana[c].assuntos.length);
             }
             
         }
     }
+})
+
+fetch('users')
+.then(response => response.json())
+.then((json) => {
+    console.log(json);
 })
 
 .catch((error) => {

@@ -1,0 +1,17 @@
+@domain = http://localhost:3000
+
+### Exibir ola chico
+
+GET {{domain}}/
+
+### Exibir Usuários
+
+GET {{domain}}/rota
+
+###
+GET {{domain}}/users
+
+###
+
+POST {{domain}}/users
+
