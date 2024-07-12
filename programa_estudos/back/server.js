@@ -13,7 +13,7 @@ app.use(morgan('tiny'));
 app.use(cors());
 
 app.get('/', (red, res) => {
-    res.send('<h1>Oi Chicão! <br> Você vai Conseguir amigão!!</h1>')
+    res.send('<h1>Rota funcionando com Sucesso!</h1>')
 })
 
 
@@ -37,7 +37,7 @@ app.get('/users', (req, res) => {
     if (name) {
         const filteredUsers = users.filter(user => user.name.includes(name));
         console.log(filteredUsers.name);
-        return res.send(filteredUsers + "<h1>O USUÁRIO ATUAL É " +  name  + " PORRA </h1>");
+        return res.send(filteredUsers /* + "<h1>O USUÁRIO ATUAL É " +  name  + " PORRA </h1>"*/);
         
     }
     res.json(users);
@@ -45,7 +45,7 @@ app.get('/users', (req, res) => {
 
 app.delete('/users', (req, res) => {
     const user = users[0];
-    
+
 
 });
 
