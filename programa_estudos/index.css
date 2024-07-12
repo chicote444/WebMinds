@@ -44,7 +44,7 @@ section {
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin: 5dvh 15dvw 0 15dvw;
+    margin: 5dvh 15dvw 20dvw 15dvw;
     border-radius: 1rem;
     background-color: #f7f7f7;
     padding: 0 0;
@@ -123,6 +123,19 @@ ul {
     color: #2823bc;
 }
 
+.users {
+    font-size: 20px;
+    padding: 0 0 5dvh 0;
+}
+
+.title {
+
+    background-color: #2f2c79;
+    border-radius: 1rem;
+    margin: 0 0 5dvh 0;
+    padding: 2dvh 0;
+
+}
 @media (1100px <= width <= 1600px) {
     table {
         font-size: 1.3dvw;
