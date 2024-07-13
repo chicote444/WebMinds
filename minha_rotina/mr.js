@@ -1,22 +1,19 @@
-
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector('.botao-circular').addEventListener('click', function() {
-        criarDiv();
-    });
+    document.querySelector('.botao-circular').addEventListener('click', criarDiv);
+    document.getElementById('btnCarregarJSON').addEventListener('click', carregarDadosDoJSON);
 });
 
 function criarDiv() {
-    // Criação dos elementos da div
     var divCard = document.createElement('div');
     divCard.classList.add('card', 'border-secondary', 'mb-3');
-    divCard.style.maxWidth = '18rem'; // Adiciona uma largura máxima para corresponder ao estilo do JSON
+    divCard.style.maxWidth = '18rem';
 
     var divCardHeader = document.createElement('div');
     divCardHeader.classList.add('card-header');
 
     var inputHeader = document.createElement('input');
     inputHeader.classList.add('form-control');
-    inputHeader.placeholder = 'Tema'; // Placeholder correspondente ao JSON
+    inputHeader.placeholder = 'Tema';
     inputHeader.type = 'text';
 
     var divCardBody = document.createElement('div');
@@ -24,12 +21,12 @@ function criarDiv() {
 
     var inputTitle = document.createElement('input');
     inputTitle.classList.add('form-control');
-    inputTitle.placeholder = 'Título'; // Placeholder correspondente ao JSON
+    inputTitle.placeholder = 'Título';
     inputTitle.type = 'text';
 
     var inputText = document.createElement('input');
     inputText.classList.add('form-control');
-    inputText.placeholder = 'Texto'; // Placeholder correspondente ao JSON
+    inputText.placeholder = 'Texto';
     inputText.type = 'text';
 
     var btnConcluir = document.createElement('a');
@@ -38,10 +35,8 @@ function criarDiv() {
     btnConcluir.href = '#';
     btnConcluir.onclick = function() {
         deletarDiv(divCard);
-
     };
 
-    // Anexa os elementos criados à div principal
     divCardHeader.appendChild(inputHeader);
     divCardBody.appendChild(inputTitle);
     divCardBody.appendChild(inputText);
@@ -49,24 +44,16 @@ function criarDiv() {
 
     divCard.appendChild(divCardHeader);
     divCard.appendChild(divCardBody);
-
-    // Adiciona a div criada ao documento
     document.getElementById('cardContainer').appendChild(divCard);
 }
 
 function deletarDiv(div) {
     div.remove();
-    
 }
 
-// parte do json
-
-// Função para criar os cards a partir do JSON
 function criarCardsFromJSON(data) {
     var cardContainer = document.getElementById('cardContainer');
-
-    // Limpa o contêiner antes de adicionar novos cards
-    cardContainer.innerHTML = '';
+    cardContainer.innerHTML = ''; // Limpa o contêiner antes de adicionar novos cartões
 
     data.forEach(function(item) {
         var divCardContainer = document.createElement('div');
@@ -107,22 +94,13 @@ function criarCardsFromJSON(data) {
         divCard.appendChild(divCardBody);
 
         divCardContainer.appendChild(divCard);
-
         cardContainer.appendChild(divCardContainer);
     });
 }
 
-// Função para carregar dados do JSON
 function carregarDadosDoJSON() {
     fetch('rm.json')
         .then(response => response.json())
         .then(data => criarCardsFromJSON(data))
         .catch(error => console.error('Erro ao carregar dados do JSON:', error));
 }
-
-// Chama a função para carregar dados do JSON quando o botão for clicado
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('btnCarregarJSON').addEventListener('click', function() {
-        carregarDadosDoJSON();
-    });
-});
