@@ -5,7 +5,7 @@
 
 
 
-
+/*
 fetch('index.json')
 .then(response => response.json())
 .then((json) => {
@@ -92,9 +92,11 @@ fetch('index.json')
         }
     }
 })
+*/
 
 
-
-.catch((error) => {
+try {
+    // code that may throw an error
+} catch (error) {
     console.error('Error:', error);
-});
+}

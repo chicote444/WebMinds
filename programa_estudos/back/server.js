@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import  { users } from './users.js';
+import  { users,programas } from './users.js'; 
 
 
 const app = express();
@@ -29,6 +29,59 @@ app.post('/users', (req, res) => {
 
         
      
+});
+
+app.get('/programas', (req, res) => {
+    res.json(programas);
+});
+
+app.post('/programas', (req, res) => {
+    const newSemana = {
+        semana: [
+        {
+            "dia": 1,
+            "materia": "Analise de dados",
+            "assuntos": [
+                "Sócrates",
+                "Sofismo",
+                "Schopenaumer"
+            ]
+        },
+        {
+            "dia": 2,
+            "materia": "Redes",
+            "assuntos": [
+                "Ecologia",
+                "Genética",
+                "Evolução"
+            ]
+        },
+        {
+            "dia": 3,
+            "materia": "SO",
+            "assuntos": [
+                "Mecânica",
+                "Eletricidade",
+                "Óptica"
+            ]
+        },
+        {
+            "dia": 4,
+            "materia": "Banco de Dados",
+            "assuntos": [
+                "Formas de Governo",
+                "Maquiavel",
+                "Desigualdades"
+            ]
+        }]
+    };
+    const programa = programas[0];
+    const newPrograma = { ...programa, semana: newSemana.semana };
+
+    if(programa) {
+        programas.push(newPrograma);
+        return res.json(newPrograma);
+    }
 });
 
 app.get('/users', (req, res) => {

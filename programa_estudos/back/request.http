@@ -15,3 +15,11 @@ GET {{domain}}/users
 
 POST {{domain}}/users
 
+### Exibir Programas
+
+GET {{domain}}/programas
+
+### Criar nova Semana
+
+POST {{domain}}/programas
+
