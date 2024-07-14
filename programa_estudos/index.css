@@ -57,7 +57,7 @@ section {
     border-radius: 1rem;
 }
 
-.progs, .progs2, .progs3 {
+.progs, .progs2, .progs3, .progs4 {
     justify-content: center;
     padding: 0 0 5dvh 0;
     margin: 0 2dvw 0 2dvw;
@@ -76,7 +76,7 @@ table {
     justify-content: center;
 }
 
-.turma, .turma2, .turma3 { 
+.turma, .turma2, .turma3, .turma4 { 
     padding: 0 0 3dvw 0;
     justify-content: center;
     color: #2f2c79;
