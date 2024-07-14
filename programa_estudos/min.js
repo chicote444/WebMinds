@@ -1,3 +1,5 @@
+
+
 var min = () => {
     let w = document.querySelector('.progs2');
     let x = document.querySelector('.progs3');
@@ -12,8 +14,19 @@ var min = () => {
     y.innerHTML = '';
     w.innerHTML = '';
     z.innerHTML = '';
-    a.innerHTML = '';
-    b.innerHTML = '';
+    fetch('http://localhost:3000/programas')
+    .then(response => response.json())
+    .then((json) => {
+        let newjson = JSON.stringify(json);
+        newjson = JSON.parse(newjson);
+        console.log(json);
+        if (newjson.length > 3) {
+            a.innerHTML = '';
+            b.innerHTML = '';
+        }
+       
+    });
+        
 //    user.innerHTML = '';
     prog.style.padding = '0 0 0 0';
     li.innerHTML = '<a href="index.html">Máximizar</a>';
