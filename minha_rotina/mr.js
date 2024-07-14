@@ -99,7 +99,7 @@ function criarCardsFromJSON(data) {
 }
 
 function carregarDadosDoJSON() {
-    fetch('rm.json')
+    fetch('http://localhost:3000/api/users') // URL do Back-end
         .then(response => response.json())
         .then(data => criarCardsFromJSON(data))
         .catch(error => console.error('Erro ao carregar dados do JSON:', error));
