@@ -84,3 +84,11 @@ body {
     background-color: #ddd;
     color: #333;
 }
+/* Estilos para os cartões */
+.card ,.cardContainer {
+    max-width: 20rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 40px; /* Adiciona margem ao redor dos cartões */
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
