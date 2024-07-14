@@ -96,9 +96,17 @@ app.get('/users', (req, res) => {
     res.json(users);
 });
 
-app.delete('/users', (req, res) => {
-    const user = users[0];
+app.delete('/users/:id', (req, res) => {
+    const User = req.params.id;
+    const index = users.findIndex(user => user.id == User);
 
+    if (index !== -1) {
+        users.splice(index, 1);
+        return res.send('Usuário deletado com sucesso');
+
+    } else {
+        return res.status(404).send('Usuário não encontrado');
+    }
 
 });
 

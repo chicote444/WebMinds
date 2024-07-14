@@ -1,6 +1,7 @@
 @domain = http://localhost:3000
-
 ### Exibir ola chico
+
+
 
 GET {{domain}}/
 
@@ -9,11 +10,17 @@ GET {{domain}}/
 GET {{domain}}/rota
 
 ###
+
+
 GET {{domain}}/users
 
 ###
 
 POST {{domain}}/users
+
+###
+
+DELETE {{domain}}/users/40
 
 ### Exibir Programas
 
@@ -22,4 +29,6 @@ GET {{domain}}/programas
 ### Criar nova Semana
 
 POST {{domain}}/programas
+
+
 
