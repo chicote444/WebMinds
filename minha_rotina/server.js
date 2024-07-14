@@ -10,9 +10,10 @@ let users = [
   { id: 1, header: 'Historia', title: 'Prova', text: 'Era do gelo' },
   { id: 2, header: 'Geografia', title: 'Prova', text: 'Pangeia' },
   { id: 3, header: 'Artes', title: 'Prova', text: 'Cores' }
+  
 ];
 
-// Rota para obter todos os usuários
+// 
 app.get('/api/users', (req, res) => {
   res.json(users);
 });
