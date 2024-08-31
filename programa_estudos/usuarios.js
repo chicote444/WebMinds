@@ -115,7 +115,7 @@ fetch('http://localhost:3000/programas')
                     case 0:
                         y[x += 1].innerHTML = newjson[0].semana[i].assuntos[j];
                 }
-                console.log(newjson[0].semana[c].assuntos.length);
+                //console.log(newjson[0].semana[c].assuntos.length);
             }
             
         }
