@@ -30,5 +30,13 @@ GET {{domain}}/programas
 
 POST {{domain}}/programas
 
+### Exibir Semana
+
+GET {{domain}}/useres
+
+###
+
+POST {{domain}}/useres
+
 
 

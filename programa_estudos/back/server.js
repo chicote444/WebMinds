@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import  { users,programas } from './users.js'; 
+import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
 
 
 const app = express();
@@ -12,10 +13,30 @@ app.use(morgan('tiny'));
 
 app.use(cors());
 
-app.get('/', (red, res) => {
+app.get('/', (req, res) => {
     res.send('<h1>Rota funcionando com Sucesso!</h1>')
 })
 
+app.get('/useres', async (req, res) => {
+    const user = await exibirusers();
+    res.send(user);
+});
+
+app.get('/useres/:id', async (req, res) => {
+    const id = req.params.id;
+    const user = await exibiruser(id);
+    res.send(user);
+});
+
+app.post('/useres', async (req, res) => {
+
+    const newUser = {
+        name: 'jaca',
+        idade: 2
+    }
+    const result = await inseriruser(newUser.name, newUser.idade);
+    res.send(result);
+});
 
 app.post('/users', (req, res) => {
         let y = 2;
@@ -109,5 +130,11 @@ app.delete('/users/:id', (req, res) => {
     }
 
 });
+
+app.use((err, req, res, next) => {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+});
+
 
 app.listen(3000, () => console.log('Servidor rodando na porta 3000'));

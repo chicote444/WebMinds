@@ -1,12 +1,13 @@
 
-fetch('http://localhost:3000/users')
+fetch('http://localhost:3000/useres')
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
     newjson = JSON.parse(newjson);
+    console.log(newjson[0]);
     let x = document.querySelector('.users');
     for (let i = 0; i < newjson.length; i++) {
-        x.innerHTML += '<b>' + newjson[i].name + '</b>' + '<br><br>';
+        x.innerHTML += '<b>' + newjson[i].nome + '</b>' + '<br><br>';
     }
     
 })
