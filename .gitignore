@@ -3,3 +3,4 @@ node_modules/
 
 # Ignorar arquivos de log
 *.log
+db.sqlite
