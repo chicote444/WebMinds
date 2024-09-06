@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import  { users,programas } from './users.js'; 
-import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
+//import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
 
 
 const app = express();
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.send('<h1>Rota funcionando com Sucesso!</h1>')
 })
 
-app.get('/useres', async (req, res) => {
+/*app.get('/useres', async (req, res) => {
     const user = await exibirusers();
     res.send(user);
 });
@@ -36,7 +36,7 @@ app.post('/useres', async (req, res) => {
     }
     const result = await inseriruser(newUser.name, newUser.idade);
     res.send(result);
-});
+});*/
 
 app.post('/users', (req, res) => {
         let y = 2;
