@@ -52,5 +52,5 @@ export async function inseriruser(nome, idade) {
         return result;
     }
 
-const result = await exibirusers();
+const result = await criardia(5, 'Física');
 console.log(result);

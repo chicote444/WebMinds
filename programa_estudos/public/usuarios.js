@@ -1,5 +1,5 @@
 
-fetch('https://glorious-fiesta-r47g4pwv67pxfp9x7-3000.app.github.dev/users')
+fetch('https://literate-waffle-r47g4pwvp96v3wxqp-3000.app.github.dev/users')
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
@@ -12,7 +12,7 @@ fetch('https://glorious-fiesta-r47g4pwv67pxfp9x7-3000.app.github.dev/users')
     
 })
 
-fetch('https://glorious-fiesta-r47g4pwv67pxfp9x7-3000.app.github.dev/programas')
+fetch('https://literate-waffle-r47g4pwvp96v3wxqp-3000.app.github.dev/programas')
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);

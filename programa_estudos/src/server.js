@@ -1,7 +1,9 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import  { users,programas } from './users.js'; 
+import  { users,programas, semana } from './users.js'; 
+import { openDB } from './configDB.js';
+import { CreateTable, InsertSemana } from './controller/programa.js';
 //import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
 
 
@@ -12,6 +14,8 @@ app.use(express.json());
 app.use(morgan('tiny'));
 
 app.use(cors());
+
+CreateTable();
 
 app.get('/', (req, res) => {
     res.send('<h1>Rota funcionando com Sucesso!</h1>')
@@ -52,8 +56,10 @@ app.post('/users', (req, res) => {
      
 });
 
-app.get('/programas', (req, res) => {
-    res.json(programas);
+app.get('/programas', async (req, res) => {
+    const week = await InsertSemana(semana[0].dia, semana[0].materia, semana[0].assuntos, semana[0].semana);
+    
+    res.json(week);
 });
 
 app.post('/programas', (req, res) => {
