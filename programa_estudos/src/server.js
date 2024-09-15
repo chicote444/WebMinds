@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 //import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
-import { exibirUser, exibirSemana, getUserFromSemana } from './models/useres.js';
+import { exibirUser, exibirSemana, getUserFromSemana, getUser, insertUser, insertSemana } from './models/useres.js';
 
 
 const app = express();
@@ -19,11 +19,68 @@ app.get('/users/ref', async (req, res) => {
     return res.json(user);
   });
 
+app.get('/users/refe', async (req, res) => {
+    const { id } = req.query;
+    const user = await getUser(id);
+    return res.json(user);
+    });
+
 app.get('/useres', async (req, res) => {
     let user;
     user = await exibirUser();
     return res.json(user);
 });
+
+app.post('/useres', async (req, res) => {
+    const newUser = {
+        name: 'brother',
+        age: 30
+    }
+    const result = await insertUser(newUser.name, newUser.age);
+    res.json(result);
+});
+
+app.post('/semana', async (req, res) => {
+    const newSemana = [{
+        dia: 1,
+        materia: 'Analise de dados',
+        assunto: 'Sócrates',
+        assunto2: 'Sofismo',
+        assunto3: 'Schopenaumer',
+        semana: 4,
+        user_id: 1
+    },
+    {
+        dia: 2,
+        materia: 'Redes',
+        assunto: 'Ecologia',
+        assunto2: 'Genética',
+        assunto3: 'Evolução',
+        semana: 4,
+        user_id: 1
+    },
+    {
+        dia: 3,
+        materia: 'SO',
+        assunto: 'Mecânica',
+        assunto2: 'Eletricidade',
+        assunto3: 'Óptica',
+        semana: 4,
+        user_id: 1
+    },
+    {
+        dia: 4,
+        materia: 'Banco de Dados',
+        assunto: 'Formas de Governo',
+        assunto2: 'Maquiavel',
+        assunto3: 'Desigualdades',
+        semana: 4,
+        user_id: 1
+    }];
+    const semana = await insertSemana(newSemana[0].dia, newSemana[0].materia, newSemana[0].assunto, newSemana[0].assunto2, newSemana[0].assunto3, newSemana[0].semana, newSemana[0].user_id);
+    res.json(semana);
+});
+
 
 app.get('/', (req, res) => {
     res.send('<h1>Rota funcionando com Sucesso!</h1>')
