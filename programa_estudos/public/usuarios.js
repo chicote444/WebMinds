@@ -27,7 +27,7 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/semana')
     let z = document.querySelector('.tabelas');
     if (newjson.length > 12) {
         
-        z.innerHTML += "<div class=turma4><h3>SEMANA " +  newjson.length/3 + "</h3></div><div class=progs4><table class=estud><thead><tr><th>Dia</th><th>Matéria</th><th>Assunto</th><th>Assunto</th><th>Assunto</th>   </tr></thead><tbody><tr><th class=th></th><th class=th></th><td></td><td></td><td></tr><tr><th class=th></th><th class=th></th><td></td><td></td><td></td></tr><tr><th class=th></th><th class=th></th><td></td><td></td><td></td></tr><tr><th class=th></th><th class=th></th><td></td><td></td><td></td></tr></tbody></table></div>"
+        z.innerHTML += "<div class=turma4><h3>SEMANA " +  Math.floor(newjson.length/3) + "</h3></div><div class=progs4><table class=estud><thead><tr><th>Dia</th><th>Matéria</th><th>Assunto</th><th>Assunto</th><th>Assunto</th>   </tr></thead><tbody><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></tr><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></td></tr><tr><th class=th></th><th class=th></th><td></td><td class=td></td><td class=td></td></tr><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></td></tr></tbody></table></div>"
     }
     let th = document.querySelectorAll('.th');
     let abc = newjson.length;
@@ -239,6 +239,15 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/semana')
                         y[x += 1].innerHTML = newjson[11].assunto3;
                         us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[11].user_id}>${newjson[11].user_id}</a>`;
                         break;
+
+                    case 12:
+                        console.log(newjson[12].assunto);
+                        y[x += 1].innerHTML = newjson[12].assunto;
+                        y[x += 1].innerHTML = newjson[12].assunto2;
+                        y[x += 1].innerHTML = newjson[12].assunto3;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[12].user_id}>${newjson[12].user_id}</a>`;
+                        break;
+
 
                     case 0:
                         y[x += 1].innerHTML = newjson[0].assunto;
