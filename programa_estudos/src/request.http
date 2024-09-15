@@ -38,5 +38,13 @@ GET {{domain}}/useres
 
 POST {{domain}}/useres
 
+###
+
+GET {{domain}}/users/ref?id=1
+
+###
+
+POST {{domain}}/semana
+
 
 

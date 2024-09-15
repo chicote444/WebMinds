@@ -136,6 +136,8 @@ ul {
     padding: 2dvh 0;
 
 }
+
+
 @media (1100px <= width <= 1600px) {
     table {
         font-size: 1.3dvw;

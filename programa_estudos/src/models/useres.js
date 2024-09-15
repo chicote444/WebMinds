@@ -33,8 +33,8 @@ async function exibirSemana() {
     return semana;
 
 }
-    
-async function getUserFromSemana(filhoId) {
+
+export async function getUser(filhoId) {
   const db = await Database.connect();
   const selectSql = `SELECT useres.* FROM useres
           JOIN semana ON useres.id = semana.user_id
@@ -42,11 +42,42 @@ async function getUserFromSemana(filhoId) {
     const rel = await db.all(selectSql, [filhoId]);
     return rel;
 }
+    
+async function getUserFromSemana(filhoId) {
+  const db = await Database.connect();
+  const selectSql = `SELECT useres.* FROM useres
+          
+          WHERE useres.id = ?`;
+    const rel = await db.all(selectSql, [filhoId]);
+    return rel;
+}
+
+async function insertUser( name, age ) {
+  const db = await Database.connect();
+
+  const insertSql = `
+    INSERT INTO useres (name, age)
+    VALUES (?, ?)
+  `;
+
+  await db.run(insertSql, [name, age]);
+}
+
+async function insertSemana( dia, materia, assunto, assunto2, assunto3, semana, user_id ) {
+  const db = await Database.connect();
+
+  const insertSql = `
+    INSERT INTO semana (dia, materia, assunto, assunto2, assunto3, semana, user_id)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  await db.run(insertSql, [dia, materia, assunto, assunto2, assunto3, semana, user_id]);
+}
 
 getUserFromSemana(1);
 
 
-export { exibirUser, exibirSemana, getUserFromSemana };
+export { exibirUser, exibirSemana, getUserFromSemana, insertUser, insertSemana };
 
 /*async function criarUser({ name, age }) {
   const db = await Database.connect();
