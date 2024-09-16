@@ -42,6 +42,18 @@ export async function getUser(filhoId) {
     const rel = await db.all(selectSql, [filhoId]);
     return rel;
 }
+
+async function getUserNamefromSemana(filhoId) {
+  const db = await Database.connect();
+  const selectSql = `
+  SELECT s.dia, u.name
+  FROM semana s
+  INNER JOIN useres u ON s.user_id = u.id
+  ORDER BY s.dia
+`;;
+    const rel = await db.all(selectSql);
+    return rel;
+}
     
 async function getUserFromSemana(filhoId) {
   const db = await Database.connect();
@@ -77,7 +89,7 @@ async function insertSemana( dia, materia, assunto, assunto2, assunto3, semana, 
 getUserFromSemana(1);
 
 
-export { exibirUser, exibirSemana, getUserFromSemana, insertUser, insertSemana };
+export { exibirUser, exibirSemana, getUserFromSemana, insertUser, insertSemana, getUserNamefromSemana };
 
 /*async function criarUser({ name, age }) {
   const db = await Database.connect();

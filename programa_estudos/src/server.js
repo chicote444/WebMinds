@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 //import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
-import { exibirUser, exibirSemana, getUserFromSemana, getUser, insertUser, insertSemana } from './models/useres.js';
+import { exibirUser, exibirSemana, getUserFromSemana, getUser, insertUser, insertSemana, getUserNamefromSemana } from './models/useres.js';
 
 
 const app = express();
@@ -24,6 +24,12 @@ app.get('/users/refe', async (req, res) => {
     const user = await getUser(id);
     return res.json(user);
     });
+
+app.get('/users/refe2', async (req, res) => {
+    const user = await getUserNamefromSemana();
+    return res.json(user);
+    }
+);
 
 app.get('/useres', async (req, res) => {
     let user;

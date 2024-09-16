@@ -167,7 +167,16 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/semana')
                         y[x += 1].innerHTML = newjson[1].assunto;
                         y[x += 1].innerHTML = newjson[1].assunto2;
                         y[x += 1].innerHTML = newjson[1].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[1].user_id}>${newjson[1].user_id}</a>`;
+                        //us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[1].user_id}>${newjson[1].user_id}</a>`;
+                        fetch(`https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe2?id=${newjson[1].user_id}`)
+                        .then(response => response.json())
+                        .then((json) => {
+                            let newjsonn = JSON.stringify(json);
+                            newjsonn = JSON.parse(newjsonn);
+                            console.log(newjson[0].name);
+                            us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[1].user_id}>${newjson[1].name}</a>`;
+                        });
+
                         break;
 
                     case 2:
