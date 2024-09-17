@@ -5,13 +5,13 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-    const file = resolve('prisma', 'seeders.json');
+    const file = resolve('programa_estudos','prisma', 'seeders.json');
    
     const seed = JSON.parse(readFileSync(file));
    
-    for (const investment of seed.investments) {
-      await prisma.investment.create({
-        data: investment,
+    for (const user of seed.users) {
+      await prisma.user.create({
+        data: user,
       });
     }
   }

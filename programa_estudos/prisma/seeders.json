@@ -1,27 +1,26 @@
-[{
-    "id": "10",
-    "name": "chicao",
-    "idade": 17
-},
-{
-    "id": "20",
-    "name": "carlos",
-    "idade": 15
-},
-{
-    
-    "name": "caio",
-    "idade": 8
-},
-{
-    "name": "pedro",
-    "idade": 6
-},
-{
-    "name": "jaca",
-    "idade": 2
-},
-{
-    "name": "paulo",
-    "idade": 9
-}]
+{    "users":    [{
+            "name": "chicao",
+            "age": 17
+        },
+        {
+            "name": "carlos",
+            "age": 15
+        },
+        {
+            
+            "name": "caio",
+            "age": 8
+        },
+        {
+            "name": "pedro",
+            "age": 6
+        },
+        {
+            "name": "jaca",
+            "age": 2
+        },
+        {
+            "name": "paulo",
+            "age": 9
+        }]
+}

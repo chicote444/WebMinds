@@ -11,6 +11,9 @@
   },
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "node programa_estudos/prisma/seed.js"
+  },
   "dependencies": {
     "@prisma/client": "^5.19.1",
     "cors": "^2.8.5",

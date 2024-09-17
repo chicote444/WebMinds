@@ -43,13 +43,13 @@ export async function getUser(filhoId) {
     return rel;
 }
 
-async function getUserNamefromSemana(filhoId) {
+async function getUserNamefromSemana() {
   const db = await Database.connect();
   const selectSql = `
-  SELECT s.dia, u.name
+  SELECT *
   FROM semana s
-  INNER JOIN useres u ON s.user_id = u.id
-  ORDER BY s.dia
+  INNER JOIN useres u ON u.id = s.user_id
+  
 `;;
     const rel = await db.all(selectSql);
     return rel;
