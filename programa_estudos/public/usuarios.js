@@ -25,10 +25,10 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe2
     let x = -1;
     let a = -2;
     let z = document.querySelector('.tabelas');
-    if (newjson.length > 12) {
+    /*if (newjson.length > 12) {
         
         z.innerHTML += "<div class=turma4><h3>SEMANA " +  Math.floor(newjson.length/3) + "</h3></div><div class=progs4><table class=estud><thead><tr><th>Dia</th><th>Matéria</th><th>Assunto</th><th>Assunto</th><th>Assunto</th>   </tr></thead><tbody><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></tr><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></td></tr><tr><th class=th></th><th class=th></th><td></td><td class=td></td><td class=td></td></tr><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></td></tr></tbody></table></div>"
-    }
+    }*/
     let th = document.querySelectorAll('.th');
     let abc = newjson.length;
     console.log(th);

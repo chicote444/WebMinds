@@ -50,7 +50,7 @@ async function getUserNamefromSemana() {
   FROM semana s
   INNER JOIN useres u ON u.id = s.user_id
   
-`;;
+`;
     const rel = await db.all(selectSql);
     return rel;
 }
