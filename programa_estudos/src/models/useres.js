@@ -1,29 +1,40 @@
-import Database from '../database/configDB.js';
+import bcrypt from 'bcrypt';
+import prisma from '../database/configDB.js';
 
-async function exibirUser(field, age) {
-  const db = await Database.connect();
-  
-  if (field && age) {
-    const selectSql = `
-    SELECT id, name, age FROM useres WHERE ${field} = ?
-  `;
+const saltRounds = Number(process.env.BCRYPT_SALT);
 
-  const user = await db.all(selectSql, [age]);
+async function criarUser({ name, email, password }) {
+  if (name && email && password) {
+    const hash = await bcrypt.hash(password, saltRounds);
 
-  return user;
+    const createdUser = await prisma.user.create({
+      data: {
+        name,
+        email,
+        password: hash,
+      },
+    });
+    return createdUser;
+  } else {
+    throw new Error('Unable to create User');
   }
-
-    const selectSql = `
-        SELECT id, name, age FROM useres
-    `;
-
-    const user = await db.all(selectSql);
-
-    return user;
 }
 
+async function exibirUser(where) {
+  const db = await prisma.user.findMany({
+    where,
+  });
+  if (db.length === 1 && where) {
+    return db[0];
+  }
+  return db;
+  }
+
+    
+
+
 async function exibirSemana() {
-  const db = await Database.connect();
+  const db = await prisma.semana.findMany();
 
     const selectSql = `
         SELECT * FROM semana
@@ -35,7 +46,7 @@ async function exibirSemana() {
 }
 
 export async function getUser(filhoId) {
-  const db = await Database.connect();
+  const db = await prisma.user.findMany();
   const selectSql = `SELECT useres.* FROM useres
           JOIN semana ON useres.id = semana.user_id
           WHERE semana.id = ?`;
@@ -55,14 +66,6 @@ async function getUserNamefromSemana() {
     return rel;
 }
     
-async function getUserFromSemana(filhoId) {
-  const db = await Database.connect();
-  const selectSql = `SELECT useres.* FROM useres
-          
-          WHERE useres.id = ?`;
-    const rel = await db.all(selectSql, [filhoId]);
-    return rel;
-}
 
 async function insertUser( name, age ) {
   const db = await Database.connect();
@@ -86,10 +89,9 @@ async function insertSemana( dia, materia, assunto, assunto2, assunto3, semana, 
   await db.run(insertSql, [dia, materia, assunto, assunto2, assunto3, semana, user_id]);
 }
 
-getUserFromSemana(1);
 
 
-export { exibirUser, exibirSemana, getUserFromSemana, insertUser, insertSemana, getUserNamefromSemana };
+export default { exibirUser, exibirSemana, insertUser, insertSemana, getUserNamefromSemana, criarUser };
 
 /*async function criarUser({ name, age }) {
   const db = await Database.connect();

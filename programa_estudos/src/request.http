@@ -46,5 +46,13 @@ GET {{domain}}/users/ref?id=1
 
 POST {{domain}}/semana
 
+###
+
+POST {{domain}}/users/true
+
+###
+
+GET {{domain}}/users/true
+
 
 

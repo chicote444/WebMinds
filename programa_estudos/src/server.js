@@ -1,9 +1,10 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import 'dotenv/config';
 //import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
-import { exibirUser, exibirSemana, getUserFromSemana, getUser, insertUser, insertSemana, getUserNamefromSemana } from './models/useres.js';
-
+import { /*exibirUser, exibirSemana, getUser, insertUser, insertSemana, getUserNamefromSemana*/ } from './models/useres.js';
+import User from './models/useres.js';
 
 const app = express();
 
@@ -13,6 +14,32 @@ app.use(morgan('tiny'));
 
 app.use(cors());
 
+app.use(
+    cors({
+      origin: '*',
+      methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true,
+      preflightContinue: false,
+    })
+  );
+
+app.post('/users/true', async (req, res) => {
+    
+    try {
+        const user = req.body;
+        const newUser = await User.criarUser(user);
+        res.status(201).json(newUser);
+      } catch (error) {
+        res.status(400).json({ error: 'Erro ao criar usuário' });
+      }
+
+});
+
+app.get('/users/true', async (req, res) => {
+    const user = await User.exibirUser();
+    res.json(user);
+});
 app.get('/users/ref', async (req, res) => {
     const { id } = req.query;
     const user = await getUserFromSemana(id);
@@ -36,6 +63,8 @@ app.get('/useres', async (req, res) => {
     user = await exibirUser();
     return res.json(user);
 });
+
+    
 
 app.post('/useres', async (req, res) => {
     const newUser = {
