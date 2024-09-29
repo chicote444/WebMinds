@@ -9,7 +9,7 @@
         "assunto2": "Geometria",
         "assunto3": "Mediana",
         "semana": 1,
-        "user_id": " "
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
     },
     {
         "dia": 2,
@@ -18,7 +18,7 @@
         "assunto2": "Geopolítica",
         "assunto3": "Placas tectônicas",
         "semana": 1,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -28,7 +28,7 @@
         "assunto2": "Gramática",
         "assunto3": "Artigos",
         "semana": 1,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -38,7 +38,7 @@
         "assunto2": "Verbo To Be",
         "assunto3": "Should/Must",
         "semana": 1,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -48,7 +48,7 @@
         "assunto2": "Sofismo",
         "assunto3": "Schopenaumer",
         "semana": 2,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -58,7 +58,7 @@
         "assunto2": "Genética",
         "assunto3": "Evolução",
         "semana": 2,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -68,7 +68,7 @@
         "assunto2": "Eletricidade",
         "assunto3": "Óptica",
         "semana": 2,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -78,7 +78,7 @@
         "assunto2": "Maquiavel",
         "assunto3": "Desigualdades",
         "semana": 2,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -88,7 +88,7 @@
         "assunto2": "História do <br> Brasil",
         "assunto3": "Iluminismo",
         "semana": 3,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -98,7 +98,7 @@
         "assunto2": "Orgânica",
         "assunto3": "Inorgânica",
         "semana": 3,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -108,7 +108,7 @@
         "assunto2": "Git",
         "assunto3": "Visual Studio",
         "semana": 3,
-        "user_id": 1
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
 
     },
     {
@@ -118,39 +118,8 @@
         "assunto2": "Artigos",
         "assunto3": "Interpretação <br> Textual",
         "semana": 3,
-        "user_id": 1
-    }],
-        "users": [
-            {
-                "name": "chicao",
-                "email": "chico@gmail.com",
-                "password": "123456"
-            },
-            {
-                "name": "carlos",
-                "email": "carlos@gmail.com",
-                "password": "123456"
-            },
-            {
-                "name": "caio",
-                "email": "caio@gmail.com",
-                "password": "123456"
-            },
-            {
-                "name": "pedro",
-                "email": "pedro@gmail.com",
-                "password": "123456"
-            },
-            {
-                "name": "jaca",
-                "email": "jaca@gmail.com",
-                "password": "123456"
-            },
-            {
-                "name": "paulo",
-                "email": "paulo@gmail.com",
-                "password": "123456"
-            }
-        ]
+        "user_id": "d739935e-b315-4383-a7bd-582bc2fbe86a"
+    }]
+        
     }
 

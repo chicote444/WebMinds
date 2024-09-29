@@ -5,6 +5,7 @@ import 'dotenv/config';
 //import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
 import { /*exibirUser, exibirSemana, getUser, insertUser, insertSemana, getUserNamefromSemana*/ } from './models/useres.js';
 import User from './models/useres.js';
+import Semana from './models/semana.js';
 
 const app = express();
 
@@ -36,6 +37,11 @@ app.post('/users/true', async (req, res) => {
 
 });
 
+app.get('/semana/mamama', async (req, res) => {
+    const semana = await Semana.exibirSemana();
+    res.json(semana);
+});
+
 app.get('/users/true', async (req, res) => {
     const user = await User.exibirUser();
     res.json(user);
@@ -53,7 +59,7 @@ app.get('/users/refe', async (req, res) => {
     });
 
 app.get('/users/refe2', async (req, res) => {
-    const user = await getUserNamefromSemana();
+    const user = await Semana.exibirSemanaUser();
     return res.json(user);
     }
 );

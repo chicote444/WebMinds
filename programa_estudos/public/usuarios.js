@@ -1,5 +1,5 @@
 
-fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/useres')
+fetch('http://localhost:3000/users/true')
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
@@ -12,7 +12,7 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/useres')
     
 })
 
-fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe2')
+fetch('http://localhost:3000/users/refe2')
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
@@ -167,7 +167,7 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe2
                         y[x += 1].innerHTML = newjson[1].assunto;
                         y[x += 1].innerHTML = newjson[1].assunto2;
                         y[x += 1].innerHTML = newjson[1].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[1].user_id}>${newjson[1].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[1].user_id}>${newjson[1].user.name}</a>`;
                         
 
                         break;
@@ -176,70 +176,70 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe2
                         y[x += 1].innerHTML = newjson[2].assunto;
                         y[x += 1].innerHTML = newjson[2].assunto2;
                         y[x += 1].innerHTML = newjson[2].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[2].user_id}>${newjson[2].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[2].user_id}>${newjson[2].user.name}</a>`;
                         break;
 
                     case 3:
                         y[x += 1].innerHTML = newjson[3].assunto;
                         y[x += 1].innerHTML = newjson[3].assunto2;
                         y[x += 1].innerHTML = newjson[3].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[3].user_id}>${newjson[3].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[3].user_id}>${newjson[3].user.name}</a>`;
                         break;
 
                     case 4:
                         y[x += 1].innerHTML = newjson[4].assunto;
                         y[x += 1].innerHTML = newjson[4].assunto2;
                         y[x += 1].innerHTML = newjson[4].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[4].user_id}>${newjson[4].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[4].user_id}>${newjson[4].user.name}</a>`;
                         break;
                     
                     case 5:
                         y[x += 1].innerHTML = newjson[5].assunto;
                         y[x += 1].innerHTML = newjson[5].assunto2;
                         y[x += 1].innerHTML = newjson[5].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[5].user_id}>${newjson[5].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[5].user_id}>${newjson[5].user.name}</a>`;
                         break;
 
                     case 6:
                         y[x += 1].innerHTML = newjson[6].assunto;
                         y[x += 1].innerHTML = newjson[6].assunto2;
                         y[x += 1].innerHTML = newjson[6].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[6].user_id}>${newjson[6].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[6].user_id}>${newjson[6].user.name}</a>`;
                         break;
 
                     case 7:
                         y[x += 1].innerHTML = newjson[7].assunto;
                         y[x += 1].innerHTML = newjson[7].assunto2;
                         y[x += 1].innerHTML = newjson[7].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[7].user_id}>${newjson[7].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[7].user_id}>${newjson[7].user.name}</a>`;
                         break;
 
                     case 8:
                         y[x += 1].innerHTML = newjson[8].assunto;
                         y[x += 1].innerHTML = newjson[8].assunto2;
                         y[x += 1].innerHTML = newjson[8].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[8].user_id}>${newjson[8].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[8].user_id}>${newjson[8].user.name}</a>`;
                         break;
 
                     case 9:
                         y[x += 1].innerHTML = newjson[9].assunto;
                         y[x += 1].innerHTML = newjson[9].assunto2;
                         y[x += 1].innerHTML = newjson[9].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[9].user_id}>${newjson[9].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[9].user_id}>${newjson[9].user.name}</a>`;
                         break;
 
                     case 10:
                         y[x += 1].innerHTML = newjson[10].assunto;
                         y[x += 1].innerHTML = newjson[10].assunto2;
                         y[x += 1].innerHTML = newjson[10].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[10].user_id}>${newjson[10].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[10].user_id}>${newjson[10].user.name}</a>`;
                         break;
 
                     case 11:
                         y[x += 1].innerHTML = newjson[11].assunto;
                         y[x += 1].innerHTML = newjson[11].assunto2;
                         y[x += 1].innerHTML = newjson[11].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[11].user_id}>${newjson[11].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[11].user_id}>${newjson[11].user.name}</a>`;
                         break;
 
                     case 12:
@@ -247,7 +247,7 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe2
                         y[x += 1].innerHTML = newjson[12].assunto;
                         y[x += 1].innerHTML = newjson[12].assunto2;
                         y[x += 1].innerHTML = newjson[12].assunto3;
-                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[12].user_id}>${newjson[12].name}</a>`;
+                        us[n += 1].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[12].user_id}>${newjson[12].user.name}</a>`;
                         break;
 
 
@@ -255,7 +255,7 @@ fetch('https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe2
                         y[x += 1].innerHTML = newjson[0].assunto;
                         y[x += 1].innerHTML = newjson[0].assunto2;
                         y[x += 1].innerHTML = newjson[0].assunto3;
-                        us[n += 1].innerHTML =`<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[0].user_id}>${newjson[0].name}</a>` ;
+                        us[n += 1].innerHTML =`<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[0].user_id}>${newjson[0].user.name}</a>` ;
                 }
                 //console.log(newjson[0].semana[c].assuntos.length);
                 
