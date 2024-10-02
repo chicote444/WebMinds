@@ -1,4 +1,3 @@
-import API from './services/api.js';
 
 const form = document.querySelector('form');
 window.handleSubmit = handleSubmit;
@@ -36,19 +35,22 @@ async function handleSubmit(event) {
         let newjson = JSON.stringify(json);
         newjson = JSON.parse(newjson);
         console.log(newjson);
+        href = login.html
 
     })
     .catch(error => console.error('Erro:', error));
     
     
-    /*
+    
     if (email) {
         location.href = 'login.html';
     } else {
         console.log('Erro ao cadastrar usuário');
-    }*/
+    }
 
 
     
     }
+
+await handleSubmit();
 console.log(window);

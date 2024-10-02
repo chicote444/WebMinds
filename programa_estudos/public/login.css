@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#chico {
+    padding: 1dvh 5dvw 1dvh 5dvw;
+}
+
+.container {
+    width: 0;
+    padding: 0 0 0 0rem;
+    margin: 0 0 0 0;
+}
+
+.span {
+    padding: 100dvw;
+    margin: 0 0 0 0;
+}
