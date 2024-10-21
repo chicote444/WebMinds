@@ -2,6 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import 'dotenv/config';
+import jwt from 'jsonwebtoken';
+import { isAuthenticated } from './middleware/auth.js';
 //import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
 import { /*exibirUser, exibirSemana, getUser, insertUser, insertSemana, getUserNamefromSemana*/ } from './models/useres.js';
 import User from './models/useres.js';
@@ -70,16 +72,31 @@ app.get('/useres', async (req, res) => {
     return res.json(user);
 });
 
-    
-
-app.post('/useres', async (req, res) => {
-    const newUser = {
-        name: 'brother',
-        age: 30
+app.post('/signin', async (req, res) => {
+    try {
+      const { email, password } = req.body;
+   
+      const { id: userId, password: hash } = await User.read({ email });
+   
+      const match = await bcrypt.compare(password, hash);
+   
+      if (match) {
+        const token = jwt.sign(
+          { userId },
+          process.env.JWT_SECRET,
+          { expiresIn: 3600000 } // 1h
+        );
+   
+        return res.json({ auth: true, token });
+      } else {
+        throw new Error('User not found');
+      }
+    } catch (error) {
+      res.status(401).json({ error: 'User not found' });
     }
-    const result = await insertUser(newUser.name, newUser.age);
-    res.json(result);
-});
+  });  
+
+
 
 app.post('/semana', async (req, res) => {
     const newSemana = [{
