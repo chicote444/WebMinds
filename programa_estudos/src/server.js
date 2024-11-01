@@ -3,11 +3,19 @@ import morgan from 'morgan';
 import cors from 'cors';
 import 'dotenv/config';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 import { isAuthenticated } from './middleware/auth.js';
 //import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
 import { /*exibirUser, exibirSemana, getUser, insertUser, insertSemana, getUserNamefromSemana*/ } from './models/useres.js';
 import User from './models/useres.js';
 import Semana from './models/semana.js';
+
+class HTTPError extends Error {
+    constructor(message, code) {
+      super(message);
+      this.code = code;
+    }
+  }
 
 const app = express();
 
@@ -39,12 +47,12 @@ app.post('/users/true', async (req, res) => {
 
 });
 
-app.get('/semana/mamama', async (req, res) => {
+app.get('/semana/mamama', isAuthenticated, async (req, res) => {
     const semana = await Semana.exibirSemana();
     res.json(semana);
 });
 
-app.get('/users/true', async (req, res) => {
+app.get('/users/true', isAuthenticated, async (req, res) => {
     const user = await User.exibirUser();
     res.json(user);
 });
@@ -54,9 +62,10 @@ app.get('/users/ref', async (req, res) => {
     return res.json(user);
   });
 
-app.get('/users/refe', async (req, res) => {
-    const { id } = req.query;
-    const user = await getUser(id);
+app.get('/users/refe', isAuthenticated, async (req, res) => {
+    const userId = req.userId;
+    const user = await User.getUser(userId);
+    delete user.password;
     return res.json(user);
     });
 
@@ -66,29 +75,27 @@ app.get('/users/refe2', async (req, res) => {
     }
 );
 
-app.get('/useres', async (req, res) => {
-    let user;
-    user = await exibirUser();
-    return res.json(user);
-});
 
 app.post('/signin', async (req, res) => {
     try {
       const { email, password } = req.body;
-   
-      const { id: userId, password: hash } = await User.read({ email });
-   
+      
+      const { id: userId, password: hash } = await User.exibirUser({ email });
+
+      
       const match = await bcrypt.compare(password, hash);
-   
+
       if (match) {
         const token = jwt.sign(
           { userId },
           process.env.JWT_SECRET,
           { expiresIn: 3600000 } // 1h
         );
-   
+        
         return res.json({ auth: true, token });
-      } else {
+      } 
+      
+      else {
         throw new Error('User not found');
       }
     } catch (error) {
@@ -191,54 +198,6 @@ app.get('/programas', async (req, res) => {
     res.json(week);
 });
 
-app.post('/programas', (req, res) => {
-    const newSemana = {
-        semana: [
-        {
-            "dia": 1,
-            "materia": "Analise de dados",
-            "assuntos": [
-                "Sócrates",
-                "Sofismo",
-                "Schopenaumer"
-            ]
-        },
-        {
-            "dia": 2,
-            "materia": "Redes",
-            "assuntos": [
-                "Ecologia",
-                "Genética",
-                "Evolução"
-            ]
-        },
-        {
-            "dia": 3,
-            "materia": "SO",
-            "assuntos": [
-                "Mecânica",
-                "Eletricidade",
-                "Óptica"
-            ]
-        },
-        {
-            "dia": 4,
-            "materia": "Banco de Dados",
-            "assuntos": [
-                "Formas de Governo",
-                "Maquiavel",
-                "Desigualdades"
-            ]
-        }]
-    };
-    const programa = programas[0];
-    const newPrograma = { ...programa, semana: newSemana.semana };
-
-    if(programa) {
-        programas.push(newPrograma);
-        return res.json(newPrograma);
-    }
-});
 
 app.get('/users', (req, res) => {
     const { name } = req.query;

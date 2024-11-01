@@ -1,7 +1,52 @@
 @domain = http://localhost:3000
+@token = {{signin.response.body.$.token}}
+
 ### Exibir ola chico
 
+### Create User
+ 
+# @name createdUser
+POST {{domain}}/users/true
+Content-Type: application/json
+ 
+{
+  "name": "pablo",
+  "email": "pablo.gay@gmail.com",
+  "password": "12345678"
+}
 
+### Signin 401
+
+# @name signin
+POST {{domain}}/signin
+Content-Type: application/json
+ 
+{
+  "email": "pablo.gay@gmail.com",
+  "password": "18"
+}
+
+### Signin Ok
+
+# @name signin
+POST {{domain}}/signin
+Content-Type: application/json
+ 
+{
+  "email": "pablo.gay@gmail.com",
+  "password": "12345678"
+}
+
+### Read User (with token)
+ 
+GET {{domain}}/users/refe
+Authorization: bearer {{token}}
+
+###
+
+GET {{domain}}/users/refe
+
+###
 
 GET {{domain}}/
 

@@ -25,7 +25,6 @@
     "mysql2": "^3.11.0",
     "prisma": "^5.20.0",
     "sqlite": "^5.1.1",
-    "sqlite-async": "^1.2.0",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {

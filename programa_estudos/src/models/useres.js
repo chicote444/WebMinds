@@ -45,13 +45,17 @@ async function exibirSemana() {
 
 }
 
-export async function getUser(filhoId) {
-  const db = await prisma.user.findMany();
-  const selectSql = `SELECT useres.* FROM useres
-          JOIN semana ON useres.id = semana.user_id
-          WHERE semana.id = ?`;
-    const rel = await db.all(selectSql, [filhoId]);
-    return rel;
+export async function getUser(id) {
+  if(id) {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
+    return user;
+  } else {
+    throw new Error('User not found');
+  }
 }
 
 async function getUserNamefromSemana() {
@@ -91,7 +95,7 @@ async function insertSemana( dia, materia, assunto, assunto2, assunto3, semana, 
 
 
 
-export default { exibirUser, exibirSemana, insertUser, insertSemana, getUserNamefromSemana, criarUser };
+export default { exibirUser, exibirSemana, insertUser, getUser, insertSemana, getUserNamefromSemana, criarUser };
 
 /*async function criarUser({ name, age }) {
   const db = await Database.connect();
