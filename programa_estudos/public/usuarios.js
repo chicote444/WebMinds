@@ -1,5 +1,5 @@
 
-fetch('http://localhost:3000/users/true')
+fetch('http://localhost:3000/users/trues')
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);

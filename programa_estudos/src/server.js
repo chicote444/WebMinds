@@ -52,7 +52,7 @@ app.get('/semana/mamama', isAuthenticated, async (req, res) => {
     res.json(semana);
 });
 
-app.get('/users/true', isAuthenticated, async (req, res) => {
+app.get('/users/trues', isAuthenticated, async (req, res) => {
     const user = await User.exibirUser();
     res.json(user);
 });
@@ -172,19 +172,6 @@ app.post('/useres', async (req, res) => {
     res.send(result);
 });*/
 
-app.post('/users', (req, res) => {
-        let y = 2;
-        const user = users[0];
-        const newUser = { ...user, id: users[5].id + users.length, name: users[y+1].name, idade: 18};
-
-        if(user) {
-            users.push(newUser);
-            return res.json(newUser);
-        }
-
-        
-     
-});
 
 app.get('/semana', async (req, res) => {
     let semana;
