@@ -1,3 +1,5 @@
+import Auth from "./js/lib/auth.js";
+
 
 fetch('http://localhost:3000/users/trues')
 .then(response => response.json())
@@ -12,12 +14,39 @@ fetch('http://localhost:3000/users/trues')
     
 })
 
+async function UserName() {
+    const userName = document.getElementById('user-name');
+
+    window.signout = Auth.signout;
+    const token = Auth.getToken();
+    console.log(Auth.getToken());
+    fetch('http://localhost:3000/users/refe', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+    }}
+)
+    .then(response => response.json())
+    .then((json) => {
+        let newjson = JSON.stringify(json);
+        newjson = JSON.parse(newjson);
+        console.log(newjson);
+        
+        userName.innerHTML = newjson.name;
+        
+        
+    })
+}
+
 fetch('http://localhost:3000/users/refe2')
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
     newjson = JSON.parse(newjson);
+    if (Auth.isAuthenticated()) {
     console.log(json);
+    UserName();
     console.log(newjson[0].assunto);
     
     
@@ -259,5 +288,8 @@ fetch('http://localhost:3000/users/refe2')
                 }
                 //console.log(newjson[0].semana[c].assuntos.length);
                 
+    }}
+    else {
+        console.log('Erro');
     }   
 })

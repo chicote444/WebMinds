@@ -79,7 +79,7 @@ app.get('/users/refe2', async (req, res) => {
 app.post('/signin', async (req, res) => {
     try {
       const { email, password } = req.body;
-      
+      console.log( req.body);
       const { id: userId, password: hash } = await User.exibirUser({ email });
 
       
@@ -99,7 +99,7 @@ app.post('/signin', async (req, res) => {
         throw new Error('User not found');
       }
     } catch (error) {
-      res.status(401).json({ error: 'User not found' });
+      res.status(401).json({ error: 'User not found.' });
     }
   });  
 

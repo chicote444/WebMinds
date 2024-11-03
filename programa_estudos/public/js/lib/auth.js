@@ -1,6 +1,6 @@
 function isAuthenticated() {
     if (!getToken()) {
-      window.location.href = '/signin.html';
+      window.location.href = 'login.html';
     } else {
       return true;
     }
@@ -13,13 +13,13 @@ function isAuthenticated() {
   function signin(token) {
     localStorage.setItem('@invest-app:token', token);
    
-    window.location.href = '/home.html';
+    window.location.href = 'index.html';
   }
    
   function signout() {
     localStorage.removeItem('@invest-app:token');
    
-    window.location.href = '/signin.html';
+    window.location.href = 'login.html';
   }
    
   export default { isAuthenticated, getToken, signin, signout };
