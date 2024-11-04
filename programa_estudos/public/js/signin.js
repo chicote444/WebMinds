@@ -1,3 +1,4 @@
+import auth from './lib/auth.js';
 import Auth from './lib/auth.js';
 
 const form = document.querySelector('form');
@@ -33,7 +34,10 @@ async function handleSubmit(event) {
         } else {
             console.log('Erro no Login');
         }
+        console.log(auth);
+        return auth;
+
     })
-      
-    
+    return email, password;
 }
+    export default { email, password };

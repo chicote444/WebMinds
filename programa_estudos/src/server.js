@@ -69,7 +69,7 @@ app.get('/users/refe', isAuthenticated, async (req, res) => {
     return res.json(user);
     });
 
-app.get('/users/refe2', async (req, res) => {
+app.get('/users/refe2', isAuthenticated, async (req, res) => {
     const user = await Semana.exibirSemanaUser();
     return res.json(user);
     }
@@ -89,10 +89,11 @@ app.post('/signin', async (req, res) => {
         const token = jwt.sign(
           { userId },
           process.env.JWT_SECRET,
-          { expiresIn: 3600000 } // 1h
+          { expiresIn: 3600000 }, // 1h
+          
         );
-        
-        return res.json({ auth: true, token });
+        const decoded = jwt.decode(token, { complete: true });
+        return res.json({ auth: true, token, por:`Vai expirar em ${new Date(decoded.payload.exp * 1000)} segundos kkkkk` });
       } 
       
       else {
@@ -102,7 +103,6 @@ app.post('/signin', async (req, res) => {
       res.status(401).json({ error: 'User not found.' });
     }
   });  
-
 
 
 app.post('/semana', async (req, res) => {

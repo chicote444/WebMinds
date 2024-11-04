@@ -1,7 +1,13 @@
 import Auth from "./js/lib/auth.js";
 
 
-fetch('http://localhost:3000/users/trues')
+fetch('http://localhost:3000/users/trues', {
+    'method': 'GET',
+    'headers': {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${Auth.getToken()}`,
+    }
+})
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
@@ -39,7 +45,16 @@ async function UserName() {
     })
 }
 
-fetch('http://localhost:3000/users/refe2')
+
+
+fetch('http://localhost:3000/users/refe2', 
+{
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${Auth.getToken()}`,
+    }}
+)
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
