@@ -21,7 +21,7 @@ async function handleSubmit(event) {
 
     console.log(user);
     
-    fetch ('http://127.0.0.1:3000/users/true', {
+    fetch ('https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/users/true', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -35,18 +35,17 @@ async function handleSubmit(event) {
         let newjson = JSON.stringify(json);
         newjson = JSON.parse(newjson);
         console.log(newjson);
-        href = login.html
-
+        if (newjson.email) {
+                location.href = 'login.html';
+            } else {
+                console.log('Erro ao cadastrar usuário');
+            }
     })
     .catch(error => console.error('Erro:', error));
     
     
     
-    if (email) {
-        location.href = 'login.html';
-    } else {
-        console.log('Erro ao cadastrar usuário');
-    }
+    
 
 
     
