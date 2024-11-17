@@ -26,7 +26,7 @@ async function UserName() {
     window.signout = Auth.signout;
     const token = Auth.getToken();
     console.log(Auth.getToken());
-    fetch('http://localhost:3000/users/refe', {
+    fetch('https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/users/refe', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ async function UserName() {
 
 
 
-fetch('http://localhost:3000/users/refe2', 
+fetch('https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/users/refe2', 
 {
     method: 'GET',
     headers: {

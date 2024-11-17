@@ -34,12 +34,11 @@ async function handleSubmit(event) {
     .then(json => {
         let newjson = JSON.stringify(json);
         newjson = JSON.parse(newjson);
-        console.log(newjson);
         if (newjson.email) {
-                location.href = 'login.html';
-            } else {
-                console.log('Erro ao cadastrar usuário');
-            }
+            location.href = 'login.html';
+        } else {
+            console.log('Erro ao cadastrar usuário');
+        }
     })
     .catch(error => console.error('Erro:', error));
     
@@ -51,5 +50,4 @@ async function handleSubmit(event) {
     
     }
 
-await handleSubmit();
 console.log(window);

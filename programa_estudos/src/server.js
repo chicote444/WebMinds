@@ -89,7 +89,7 @@ app.post('/signin', async (req, res) => {
         const token = jwt.sign(
           { userId },
           process.env.JWT_SECRET,
-          { expiresIn: 3600000 }, // 1h
+          { expiresIn: 3 }, // 1h
           
         );
         const decoded = jwt.decode(token, { complete: true });
