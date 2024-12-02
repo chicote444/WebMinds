@@ -25,7 +25,8 @@
     "mysql2": "^3.11.0",
     "prisma": "^5.20.0",
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

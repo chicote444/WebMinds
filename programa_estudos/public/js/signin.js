@@ -16,7 +16,7 @@ async function handleSubmit(event) {
     console.log(email, password);
     console.log(user);
     let auth;
-    fetch('http://localhost:3000/signin', {
+    fetch('https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/signin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
