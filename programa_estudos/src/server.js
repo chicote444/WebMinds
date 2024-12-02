@@ -4,9 +4,9 @@ import cors from 'cors';
 import 'dotenv/config';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import { z } from 'zod';
 import { isAuthenticated } from './middleware/auth.js';
-//import { exibirsemana, exibirdia, exibiruser, inseriruser, criardia, exibirusers } from './database.js';
-import { /*exibirUser, exibirSemana, getUser, insertUser, insertSemana, getUserNamefromSemana*/ } from './models/useres.js';
+import { validate } from './middleware/validate.js';
 import User from './models/useres.js';
 import Semana from './models/semana.js';
 
@@ -47,32 +47,98 @@ app.post('/users/true', async (req, res) => {
 
 });
 
-app.get('/semana/mamama', isAuthenticated, async (req, res) => {
-    const semana = await Semana.exibirSemana();
-    res.json(semana);
+app.get('/semana/mamama', isAuthenticated, validate(z.object({
+  query: z.object({
+    name: z.string().optional(),
+}),
+})
+), 
+  async (req, res) => {
+    try {
+    const { name } = req.query;
+    const userId = req.userId;
+    if (name) {
+      const semana = await Semana.exibirSemana({ name, userId });
+      return res.json(semana);
+    } else {
+      const semana = await Semana.exibirSemana({ userId });
+    }
+    return res.json(semana);
+  } catch (error) {
+    throw new HTTPError('Erro ao buscar semana', 400);
+  }
 });
 
-app.get('/users/trues', isAuthenticated, async (req, res) => {
-    const user = await User.exibirUser();
-    res.json(user);
-});
+app.get('/users/trues', isAuthenticated,
+  validate(z.object({
+    query: z.object({
+      name: z.string().optional(),
+  }),
+  })
+  ),
+  async (req, res) => {
+    try {
+      const { name } = req.query;
+      const userId = req.userId;
+      if (name) {
+        const user = await User.exibirUser({ name, userId });
+        return res.json(user);
+      } else {
+        const user = await User.exibirUser({ userId });
+      }
+      return res.json(user);
+    } catch (error) {
+      throw new HTTPError('Erro ao buscar usuário', 400);
+    }
+  });
 app.get('/users/ref', async (req, res) => {
     const { id } = req.query;
     const user = await getUserFromSemana(id);
     return res.json(user);
   });
 
-app.get('/users/refe', isAuthenticated, async (req, res) => {
-    const userId = req.userId;
-    const user = await User.getUser(userId);
-    delete user.password;
-    return res.json(user);
-    });
-
-app.get('/users/refe2', isAuthenticated, async (req, res) => {
-    const user = await Semana.exibirSemanaUser();
-    return res.json(user);
+app.get('/users/refe/:id', isAuthenticated,
+  validate(z.object({
+    params: z.object({
+      id: z.string().uuid(),
+  }),
+  })
+  ),
+  async (req, res) => {
+    try {
+      const { id } = req.params.id;
+      const userId = req.userId;
+      const user = await User.getUser(id, { userId });
+      return res.json(user);
+    } catch (error) {
+      throw new HTTPError('Erro ao buscar usuário', 400);
     }
+  });
+
+
+
+app.get('/users/refe2', isAuthenticated,
+  validate(z.object({
+    query: z.object({
+      id: z.string().uuid(),
+  }),
+  })
+  ),
+
+
+  async (req, res) => {
+    try {
+    const { id } = req.query;
+    const userId = req.userId;
+    if (id) {
+      const user = await Semana.exibirSemanaUser();
+      return res.json(user);
+    } 
+    return res.json(user);
+    } catch (error) {
+      throw new HTTPError('Erro ao buscar semana', 400);
+    }
+  }
 );
 
 
