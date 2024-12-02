@@ -47,68 +47,33 @@ app.post('/users/true', async (req, res) => {
 
 });
 
-app.get('/semana/mamama', isAuthenticated, validate(z.object({
-  query: z.object({
-    name: z.string().optional(),
-}),
-})
-), 
+app.get('/semana/mamama', isAuthenticated,
+  
   async (req, res) => {
     try {
-    const { name } = req.query;
-    const userId = req.userId;
-    if (name) {
       const semana = await Semana.exibirSemana({ name, userId });
       return res.json(semana);
-    } else {
-      const semana = await Semana.exibirSemana({ userId });
-    }
-    return res.json(semana);
+    
   } catch (error) {
     throw new HTTPError('Erro ao buscar semana', 400);
   }
 });
 
 app.get('/users/trues', isAuthenticated,
-  validate(z.object({
-    query: z.object({
-      name: z.string().optional(),
-  }),
-  })
-  ),
   async (req, res) => {
     try {
-      const { name } = req.query;
-      const userId = req.userId;
-      if (name) {
-        const user = await User.exibirUser({ name, userId });
-        return res.json(user);
-      } else {
-        const user = await User.exibirUser({ userId });
-      }
+      const user = await User.exibirUser({ name });
       return res.json(user);
     } catch (error) {
       throw new HTTPError('Erro ao buscar usuário', 400);
     }
   });
-app.get('/users/ref', async (req, res) => {
-    const { id } = req.query;
-    const user = await getUserFromSemana(id);
-    return res.json(user);
-  });
 
-app.get('/users/refe/:id', isAuthenticated,
-  validate(z.object({
-    params: z.object({
-      id: z.string().uuid(),
-  }),
-  })
-  ),
+
+app.get('/users/refe', isAuthenticated,
   async (req, res) => {
     try {
-      const { id } = req.params.id;
-      const userId = req.userId;
-      const user = await User.getUser(id, { userId });
+      const user = await User.getUser();
       return res.json(user);
     } catch (error) {
       throw new HTTPError('Erro ao buscar usuário', 400);
@@ -118,23 +83,12 @@ app.get('/users/refe/:id', isAuthenticated,
 
 
 app.get('/users/refe2', isAuthenticated,
-  validate(z.object({
-    query: z.object({
-      id: z.string().uuid(),
-  }),
-  })
-  ),
-
 
   async (req, res) => {
     try {
-    const { id } = req.query;
-    const userId = req.userId;
-    if (id) {
       const user = await Semana.exibirSemanaUser();
-      return res.json(user);
-    } 
-    return res.json(user);
+      res.json(user);
+    
     } catch (error) {
       throw new HTTPError('Erro ao buscar semana', 400);
     }
@@ -216,53 +170,6 @@ app.post('/semana', async (req, res) => {
 app.get('/', (req, res) => {
     res.send('<h1>Rota funcionando com Sucesso!</h1>')
 })
-
-/*app.get('/useres', async (req, res) => {
-    const user = await exibirusers();
-    res.send(user);
-});
-
-app.get('/useres/:id', async (req, res) => {
-    const id = req.params.id;
-    const user = await exibiruser(id);
-    res.send(user);
-});
-
-app.post('/useres', async (req, res) => {
-
-    const newUser = {
-        name: 'jaca',
-        idade: 2
-    }
-    const result = await inseriruser(newUser.name, newUser.idade);
-    res.send(result);
-});*/
-
-
-app.get('/semana', async (req, res) => {
-    let semana;
-    semana = await exibirSemana();
-    return res.json(semana);
-  });
-
-app.get('/programas', async (req, res) => {
-    const week = await InsertSemana(semana[0].dia, semana[0].materia, semana[0].assuntos, semana[0].semana);
-    
-    res.json(week);
-});
-
-
-app.get('/users', (req, res) => {
-    const { name } = req.query;
-    console.log(name);
-    if (name) {
-        const filteredUsers = users.filter(user => user.name.includes(name));
-        console.log(filteredUsers.name);
-        return res.send(filteredUsers /* + "<h1>O USUÁRIO ATUAL É " +  name  + " PORRA </h1>"*/);
-        
-    }
-    res.json(users);
-});
 
 app.delete('/users/:id', (req, res) => {
     const User = req.params.id;
