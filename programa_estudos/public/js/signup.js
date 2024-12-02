@@ -42,7 +42,7 @@ async function handleSubmit(event) {
     
     
     
-    if (email) {
+     if (email) {
         location.href = 'login.html';
     } else {
         console.log('Erro ao cadastrar usuário');
