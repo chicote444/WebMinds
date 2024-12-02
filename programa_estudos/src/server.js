@@ -35,7 +35,19 @@ app.use(
     })
   );
 
-app.post('/users/true', async (req, res) => {
+app.post(
+  '/users/true',
+  validate(
+    z.object({
+      body: z.object({
+        name: z.string(),
+        email: z.string().email(),
+        password: z.string().min(8),
+      })
+    })
+  ),
+  
+  async (req, res) => {
     
     try {
         const user = req.body;
@@ -62,7 +74,7 @@ app.get('/semana/mamama', isAuthenticated,
 app.get('/users/trues', isAuthenticated,
   async (req, res) => {
     try {
-      const user = await User.exibirUser({ name });
+      const user = await User.exibirUser();
       return res.json(user);
     } catch (error) {
       throw new HTTPError('Erro ao buscar usuário', 400);
@@ -97,7 +109,17 @@ app.get('/users/refe2', isAuthenticated,
 );
 
 
-app.post('/signin', async (req, res) => {
+app.post(
+  '/signin',
+  validate(
+    z.object({
+      body: z.object({
+        email: z.string().email(),
+        password: z.string().min(8),
+      })
+    })
+  ),
+   async (req, res) => {
     try {
       const { email, password } = req.body;
       console.log( req.body);

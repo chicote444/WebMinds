@@ -1,7 +1,7 @@
 import Auth from "./js/lib/auth.js";
 
 
-fetch('https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/users/trues', {
+fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/*/'http://localhost:3000/users/trues', {
     'method': 'GET',
     'headers': {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ async function UserName() {
     window.signout = Auth.signout;
     const token = Auth.getToken();
     console.log(Auth.getToken());
-    fetch('https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/users/refe', {
+    fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev*/'http://localhost:3000/users/refe', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ async function UserName() {
 
 
 
-fetch('https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/users/refe2', 
+fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev*/'http://localhost:3000/users/refe2', 
 {
     method: 'GET',
     headers: {
