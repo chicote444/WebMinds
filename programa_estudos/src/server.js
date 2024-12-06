@@ -71,7 +71,14 @@ app.get('/semana/mamama', isAuthenticated,
   }
 });
 
-app.get('/users/trues', isAuthenticated,
+app.get('/users/trues', isAuthenticated, 
+  validate(
+    z.object({
+      query: z.object({
+        name: z.string().optional(),
+      })
+      })
+    ),
   async (req, res) => {
     try {
       const user = await User.exibirUser();
