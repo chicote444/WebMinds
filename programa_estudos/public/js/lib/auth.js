@@ -21,5 +21,13 @@ function isAuthenticated() {
    
     window.location.href = 'login.html';
   }
+
+  function setId(id) {
+    localStorage.setItem('@invest-app:id', id);
+  }
+
+  function getId() {
+    return localStorage.getItem('@invest-app:id');
+  }
    
-  export default { isAuthenticated, getToken, signin, signout };
+  export default { isAuthenticated, getToken, signin, signout, setId, getId };

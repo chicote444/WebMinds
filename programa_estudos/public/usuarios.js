@@ -1,18 +1,20 @@
 import Auth from "./js/lib/auth.js";
 
 
-fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/*/'http://localhost:3000/users/trues', {
+fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev/*/`http://localhost:3000/users/trues`, {
     'method': 'GET',
     'headers': {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${Auth.getToken()}`,
     }
 })
+
 .then(response => response.json())
 .then((json) => {
     let newjson = JSON.stringify(json);
     newjson = JSON.parse(newjson);
     console.log(newjson[0]);
+    UserName(Auth.getId());
     let x = document.querySelector('.users');
     for (let i = 0; i < newjson.length; i++) {
         x.innerHTML += '<b>' + newjson[i].name + '</b>' + '<br><br>';
@@ -20,32 +22,29 @@ fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github
     
 })
 
+
 async function UserName() {
     const userName = document.getElementById('user-name');
 
     window.signout = Auth.signout;
     const token = Auth.getToken();
     console.log(Auth.getToken());
-    fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev*/'http://localhost:3000/users/refe', {
+    const response = fetch(`http://localhost:3000/users/trues/${Auth.getId()}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${Auth.getToken()}`,
-    }}
+    }},
+    
 )
-    .then(response => response.json())
-    .then((json) => {
-        let newjson = JSON.stringify(json);
-        newjson = JSON.parse(newjson);
-        console.log(newjson);
-        
-        userName.innerHTML = newjson.name;
-        
-        
-    })
+.then(response => response.json())
+.then((json) => {
+    let newjson = JSON.stringify(json);
+    newjson = JSON.parse(newjson);
+    console.log(newjson);
+    userName.innerHTML = newjson.name;
 }
-
-
+)}
 
 fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev*/'http://localhost:3000/users/refe2', 
 {
@@ -61,18 +60,13 @@ fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github
     newjson = JSON.parse(newjson);
     if (Auth.isAuthenticated()) {
     console.log(json);
-    UserName();
-    console.log(newjson[0].assunto);
     
+    console.log(newjson[0].assunto);
     
     console.log(newjson.length);
     let x = -1;
     let a = -2;
     let z = document.querySelector('.tabelas');
-    /*if (newjson.length > 12) {
-        
-        z.innerHTML += "<div class=turma4><h3>SEMANA " +  Math.floor(newjson.length/3) + "</h3></div><div class=progs4><table class=estud><thead><tr><th>Dia</th><th>Matéria</th><th>Assunto</th><th>Assunto</th><th>Assunto</th>   </tr></thead><tbody><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></tr><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></td></tr><tr><th class=th></th><th class=th></th><td></td><td class=td></td><td class=td></td></tr><tr><th class=th></th><th class=th></th><td class=td></td><td class=td></td><td class=td></td></tr></tbody></table></div>"
-    }*/
     let th = document.querySelectorAll('.th');
     let abc = newjson.length;
     console.log(th);
@@ -140,68 +134,15 @@ fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github
                 th[a+=2].innerHTML = `<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/refe?id=${newjson[0].id}>${newjson[0].dia}</a>`;
         
         }
-
-        
-            /*for (let j = 0; j < newjson[0].length; j++) {
-                
-                switch (c) {
-
-                    case 1:
-                        th[x += 2].innerHTML = newjson[1].materia;
-                        break;
-
-                    case 2:
-                        th[x += 2].innerHTML = newjson[2].semana[j].materia;
-                        break;
-
-                    case 3:
-                        th[x += 2].innerHTML = newjson[3].semana[j].materia;
-                        
-                        break;
-
-                    case 0:
-                        th[x += 2].innerHTML = newjson[0].materia;
-                    //    console.log(newjson[3].semana[j].materia);
-                }
-                
-            }
-    //        console.log(newjson[3].semana[0].materia);
-            console.log(newjson[0].semana.length);
-            for (let i = 0; i < newjson[0].semana.length; i++) {
-                
-                switch (c) {
-
-                    case 1:
-                        th[a += 2].innerHTML = newjson[1].semana[i].dia;
-                        break;
-
-                    case 2:
-                        th[a += 2].innerHTML = newjson[2].semana[i].dia;
-                        break;
-
-                    case 3:
-                        th[a += 2].innerHTML = newjson[3].semana[i].dia;
-                        break;
-
-                    case 0:
-                        th[a += 2].innerHTML = newjson[0].semana[i].dia;
-                }
-                //console.log(newjson[0].semana[c].assuntos.length);
-            }*/          
+         
         
     }
-
-
-
-
-
 
     let y = document.querySelectorAll('.td');
     let us = document.querySelectorAll('.user');
     x = -1
     let n = -1
     console.log(y.length/3);
-    //console.log(newjson[0].semana[0].assuntos.length);
     console.log(newjson.length);
     for (let c = 0; c < newjson.length; c++) {
    
@@ -300,9 +241,7 @@ fetch(/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github
                         y[x += 1].innerHTML = newjson[0].assunto2;
                         y[x += 1].innerHTML = newjson[0].assunto3;
                         us[n += 1].innerHTML =`<a href=https://jubilant-fiesta-x5rw5vxqv66jfvq67-3000.app.github.dev/users/ref?id=${newjson[0].user_id}>${newjson[0].user.name}</a>` ;
-                }
-                //console.log(newjson[0].semana[c].assuntos.length);
-                
+                }                
     }}
     else {
         console.log('Erro');

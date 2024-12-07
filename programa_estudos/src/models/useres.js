@@ -30,20 +30,6 @@ async function exibirUser(where) {
   return db;
   }
 
-    
-
-
-async function exibirSemana() {
-  const db = await prisma.semana.findMany();
-
-    const selectSql = `
-        SELECT * FROM semana
-    `;
-
-    const semana = await db.all(selectSql);
-    return semana;
-
-}
 
 export async function getUser(id) {
   if(id) {
@@ -58,56 +44,13 @@ export async function getUser(id) {
   }
 }
 
-async function getUserNamefromSemana() {
-  const db = await Database.connect();
-  const selectSql = `
-  SELECT *
-  FROM semana s
-  INNER JOIN useres u ON u.id = s.user_id
-  
-`;
-    const rel = await db.all(selectSql);
-    return rel;
-}
+
     
 
-async function insertUser( name, age ) {
-  const db = await Database.connect();
-
-  const insertSql = `
-    INSERT INTO useres (name, age)
-    VALUES (?, ?)
-  `;
-
-  await db.run(insertSql, [name, age]);
-}
-
-async function insertSemana( dia, materia, assunto, assunto2, assunto3, semana, user_id ) {
-  const db = await Database.connect();
-
-  const insertSql = `
-    INSERT INTO semana (dia, materia, assunto, assunto2, assunto3, semana, user_id)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `;
-
-  await db.run(insertSql, [dia, materia, assunto, assunto2, assunto3, semana, user_id]);
-}
 
 
 
-export default { exibirUser, exibirSemana, insertUser, getUser, insertSemana, getUserNamefromSemana, criarUser };
-
-/*async function criarUser({ name, age }) {
-  const db = await Database.connect();
 
 
-  if (name && age) {
-    const insertSql = `
-    INSERT INTO useres (name, age)
-    VALUES (?, ?)
-  `;
-  }
-  
 
-  await db.run(insertSql, [name, age]);
-}*/
+export default { exibirUser, getUser, criarUser };

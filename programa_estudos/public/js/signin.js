@@ -31,6 +31,7 @@ async function handleSubmit(event) {
         auth = newjson.auth;
         if (auth) {
             Auth.signin(newjson.token);
+            Auth.setId(newjson.userId);
         } else {
             console.log('Erro no Login');
         }

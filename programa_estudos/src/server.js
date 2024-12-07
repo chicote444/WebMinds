@@ -71,6 +71,26 @@ app.get('/semana/mamama', isAuthenticated,
   }
 });
 
+app.get('/users/trues/:id', isAuthenticated, validate(
+  z.object({
+    params: z.object({
+      id: z.string().uuid(),
+    })
+  })
+),
+  async (req, res) => {
+    try {
+      const id = req.params.id;
+      const userId = req.id;
+      const user = await User.getUser(id, { userId });
+
+      return res.json(user);
+    }
+    catch (err) {
+      throw new HTTPError('Erro ao buscar usuário', 400);
+    }}
+)
+
 app.get('/users/trues', isAuthenticated, 
   validate(
     z.object({
@@ -81,24 +101,40 @@ app.get('/users/trues', isAuthenticated,
     ),
   async (req, res) => {
     try {
-      const user = await User.exibirUser();
-      return res.json(user);
+      const { name } = req.query;
+
+      let users;
+      if (name) {
+      users = await User.exibirUser(name);
+      } else {
+      users = await User.exibirUser();
+      }
+      return res.json(users);
     } catch (error) {
       throw new HTTPError('Erro ao buscar usuário', 400);
     }
   });
 
 
-app.get('/users/refe', isAuthenticated,
+app.get('/users/refe/:id', isAuthenticated, validate(
+  z.object({
+    params: z.object({
+      id: z.string().uuid(),
+    })
+  }),
   async (req, res) => {
     try {
-      const userId = req.userId;
-      const user = await User.getUser(userId);
+      const id = req.params.id;
+      const userId = req.id;
+      const user = await User.getUser(id, { userId });
       return res.json(user);
     } catch (error) {
       throw new HTTPError('Erro ao buscar usuário', 400);
     }
-  });
+  })
+);
+
+
 
 
 
@@ -130,8 +166,7 @@ app.post(
     try {
       const { email, password } = req.body;
       console.log( req.body);
-      const { id: userId, password: hash } = await User.exibirUser({ email });
-
+      const { id: userId, name: name, password: hash } = await User.exibirUser({ email });
       
       const match = await bcrypt.compare(password, hash);
 
@@ -139,11 +174,11 @@ app.post(
         const token = jwt.sign(
           { userId },
           process.env.JWT_SECRET,
-          { expiresIn: 3 }, // 1h
+          { expiresIn: 3600000 }, // 1h
           
         );
         const decoded = jwt.decode(token, { complete: true });
-        return res.json({ auth: true, token, por:`Vai expirar em ${new Date(decoded.payload.exp * 1000)} segundos kkkkk` });
+        return res.json({ userId, name, auth: true, token, por:`Vai expirar em ${new Date(decoded.payload.exp * 1000)} segundos kkkkk` });
       } 
       
       else {
