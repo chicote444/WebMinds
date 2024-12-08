@@ -9,7 +9,8 @@ window.handleSubmit = handleSubmit;
 async function handleSubmit(event) {
     console.log(data);
     event.preventDefault();
-    const user = Object.fromEntries(new FormData(form));
+    if (form.checkValidity()) {
+        const user = Object.fromEntries(new FormData(form));
 
     const email = data[1].value;
     const password = data[2].value;
@@ -33,12 +34,21 @@ async function handleSubmit(event) {
             Auth.signin(newjson.token);
             Auth.setId(newjson.userId);
         } else {
-            console.log('Erro no Login');
+            showToast('Erro no login');
         }
         console.log(auth);
         return auth;
 
     })
     return email, password;
+    } else {
+        form.classlist.add('was-validated');
+    } 
 }
     export default { email, password };
+
+    function showToast(message) {
+        document.querySelector('.toast-header strong').innerText = message;
+        const toast = new bootstrap.Toast(document.querySelector('#liveToast'));
+        toast.show();
+      }

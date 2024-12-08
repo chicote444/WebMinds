@@ -49,15 +49,30 @@ app.post(
   
   async (req, res) => {
     
-    try {
-        const user = req.body;
-        const newUser = await User.criarUser(user);
-        res.status(201).json(newUser);
-      } catch (error) {
-        res.status(400).json({ error: 'Erro ao criar usuário' });
+    //try {
+        const email = req.body;
+        const userId = req.id;
+        const existingUser = await User.existingEmail(email, {  userId });
+        if (existingUser) {
+          throw new HTTPError('Email already exists', 400);
+        } else {            
+          const newUser = await User.criarUser(user);
+    
+          res.status(201).json(newUser);
+          }
+      } /*catch (error) {
+        if (
+          error.message.includes(
+            'Unique constraint failed on the fields: (`email`)'
+          )
+        ) {
+          throw new HTTPError('Email already exists', 400);
+        }
+   
+        throw new HTTPError('Unable to create user', 400);
       }
 
-});
+}*/);
 
 app.get('/semana/mamama', isAuthenticated,
   

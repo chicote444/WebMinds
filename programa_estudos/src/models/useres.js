@@ -30,6 +30,16 @@ async function exibirUser(where) {
   return db;
   }
 
+export async function existingEmail(email) {
+  if(email) {
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  return user;
+}}
+
 
 export async function getUser(id) {
   if(id) {
@@ -53,4 +63,4 @@ export async function getUser(id) {
 
 
 
-export default { exibirUser, getUser, criarUser };
+export default { exibirUser, getUser, criarUser, existingEmail };
