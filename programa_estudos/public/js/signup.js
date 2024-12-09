@@ -19,7 +19,40 @@ async function handleSubmit(event) {
     console.log(name, email, password);
     console.log("Parabéns!! " + datas[3].value + "!");
     const user = Object.fromEntries(new FormData(form));
-
+    if (password !== confirmPassword) {
+        const error = 'As senhas não são iguais.';
+       
+        const confirmationPasswordError = document.querySelector(
+          '#confirmationPassword + .invalid-feedback'
+        );
+       
+        confirmationPasswordError.textContent = error;
+       
+        confirmationPasswordcause.setCustomValidity(error);
+       
+        confirmationPasswordcause.classList.add('is-invalid');
+        return false;
+    }   else {
+                    confirmationPasswordcause.setCustomValidity('');
+                }
+        
+                emailcause.oninput = () => {
+        emailcause.classList.remove('is-invalid');
+       
+        const confirmationPasswordError = document.querySelector(
+          '#email + .invalid-feedback'
+        );
+       
+        confirmationPasswordError.textContent = 'Informe o email do usuário.';
+      };
+       
+      confirmationPasswordcause.oninput = () => {
+        const password = form.password.value;
+       
+        const confirmationPassword = confirmationPasswordcause.value;
+       
+         
+      };
     console.log(user);
     
 fetch (/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.github.dev*/'http://localhost:3000/users/true', {
@@ -39,7 +72,7 @@ fetch (/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.githu
         if (newjson.email) {
             location.href = 'login.html';
         } else if (newjson === 'Email already exists') {
-            
+    
             const error = 'Email já cadastrado';
        
             const emailError = document.querySelector('#email + .invalid-feedback');
@@ -58,35 +91,7 @@ fetch (/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.githu
           form.classList.add('was-validated');
             }
        
-      emailcause.oninput = () => {
-        emailcause.classList.remove('is-invalid');
-       
-        const confirmationPasswordError = document.querySelector(
-          '#email + .invalid-feedback'
-        );
-       
-        confirmationPasswordError.textContent = 'Informe o email do usuário.';
-      };
-       
-      confirmationPasswordcause.oninput = () => {
-        const password = form.password.value;
-       
-        const confirmationPassword = confirmationPasswordcause.value;
-       
-        if (password !== confirmationPassword) {
-          const error = 'As senhas não são iguais.';
-       
-          const confirmationPasswordError = document.querySelector(
-            '#confirmationPassword + .invalid-feedback'
-          );
-       
-          confirmationPasswordError.textContent = error;
-       
-          confirmationPasswordcause.setCustomValidity(error);
-        } else {
-            confirmationPasswordcause.setCustomValidity('');
-        }
-      };
+      
     }  
     
 
