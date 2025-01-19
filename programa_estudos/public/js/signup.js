@@ -74,7 +74,7 @@ fetch (/*'https://refactored-space-rotary-phone-4jq7jw69vjw9h7xv6-3000.app.githu
         } else if (newjson === 'Email already exists') {
     
             const error = 'Email já cadastrado';
-       
+            console.log(error);
             const emailError = document.querySelector('#email + .invalid-feedback');
        
             emailError.textContent = error;

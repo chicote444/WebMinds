@@ -53,17 +53,14 @@ app.post(
         const user = req.body;
         const newUser = await User.criarUser(user);
         res.status(201).json(newUser);
-      } catch (error) {
-        if (
-          error.message.includes(
-            'Unique constraint failed on the fields: (`email`)'
-          )
-        ) {
-          throw new HTTPError('Email already exists', 400);
-        }
-   
-        throw new HTTPError('Unable to create user', 400);
-      }
+      } catch (error) { 
+        if ( error.message.includes( 'Unique constraint failed on the fields: (`email`)' ) 
+        ) { 
+      return res.status(400).json({ error: 'Email already exists' }); 
+    }
+      res.status(500).json({ error: 'Unable to create user' }); }
+
+
 
 });
 
